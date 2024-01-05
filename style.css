@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+body {
+  font-family: 'Cabin', sans-serif;
+  background: rgb(0, 14, 35);
+  background: -moz-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  background: -webkit-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  background: linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000e23", endColorstr="#00213a", GradientType=1);
+  color: #e7e5ff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  padding: 1em;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+section {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  border-radius: 12px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #d42b2b;
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  margin: 0.5em 0;
+  text-decoration: none;
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #cc3700;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
