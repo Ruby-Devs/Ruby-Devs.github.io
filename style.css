@@ -59,7 +59,10 @@ p {
 
 footer {
   text-align: center;
-  padding: 1em;
+  padding: 0.01em;
   background-color: #333;
   color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
