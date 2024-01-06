@@ -4,34 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Title</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <title>Your Website</title>
 </head>
 <body>
 
-  <header class="bg-primary text-white text-center py-3">
+  <header>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box">
-            <h2>Title 1</h2>
-            <p>Description 1</p>
-          </div>
+      <div class="text-center">
+        <h1>Header Title</h1>
+        <p>Header Description</p>
+      </div>
+      <div class="box-container">
+        <div class="box">
+          <h2>Box 1</h2>
+          <p>Description 1</p>
         </div>
-        <div class="col-md-6">
-          <div class="box">
-            <h2>Title 2</h2>
-            <p>Description 2</p>
-          </div>
+        <div class="box">
+          <h2>Box 2</h2>
+          <p>Description 2</p>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="container mt-4">
-    <h1>Main Content Goes Here</h>
+  <div class="container">
+    <!-- Main content goes here -->
   </div>
 
-  <footer class="bg-dark text-white text-center py-2">
+  <footer>
     <p>Website made by Gen1x</p>
   </footer>
 
