@@ -1,40 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&display=swap');
 
-html {
-  height: 100%;
-  width: 100%;
+body {
+  font-family: 'Play', sans-serif;
+  background-color: #240000;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background-color: #240000;
+#logo {
+    margin-right: 10px; /* Adjust margin as needed */
+    margin-top: -7px; /* Adjust margin as needed */
+}
+
+header {
+  background-color: #333;
+  padding: 1em;
+  text-align: center;
+  display: flex;
 }
 
 h1 {
+  margin: 0;
+  font-size: 2em;
   font-family: Chakra Petch;
+}
+
+h1, p {
   margin: 0;
   color: white;
-  font-size: 60px;
 }
 
-p {
-  font-family: Play;
-  color: white;
+section {
+  max-width: 800px;
+  margin: 2em auto;
+@@ -42,7 +49,7 @@ p {
+  font-weight: bold;
 }
 
-.menuTab {
-  --angle: 0deg;
-  width: 500px;
-  background-image: linear-gradient(to top, #380000, #1f0000);
-  color: white;
-  padding: 15px;
-  border: 3px solid red;
-  border-radius: 15px;
-  animation: 1s rotate linear infinite;
-  transition-duration: 50ms;
-  text-align: left;
-}
-
-.button {
+button {
   color: red;
   padding: 10px;
   border: red solid 3px;
@@ -44,7 +47,15 @@ p {
   transition-duration: 150ms;
 }
 
-.button:hover {
+button:hover {
   color: #380000;
   background-color: red;
 }
+
+footer {
+  text-align: center;
+  padding: 0.01em;
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
