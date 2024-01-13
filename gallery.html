@@ -114,13 +114,10 @@
             section.appendChild(button);
             section.appendChild(howto);
 
-            // Append the section to the div
-            div.appendChild(section);
-
             // Add the fade-in class after a delay for each section
             setTimeout(() => {
               section.classList.add('fade-in');
-            }, 200 * data.indexOf(extension));
+            }, 1000 + 200 * data.indexOf(extension));
           });
 
           // Append the div to the extensionList
