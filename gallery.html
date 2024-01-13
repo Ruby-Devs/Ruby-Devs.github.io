@@ -24,7 +24,6 @@
     </style>
 </head>
 <body>
-<section data-scrollbar>
   <header>
     <a href="/"><img src="logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
     <div id="headertxt">
@@ -32,12 +31,9 @@
       <p>We make PenguinMod and TurboWarp cooler.</p>
     </div>
   </header>
-</section>
-<div id="extension-list"></div>
-<script> src="https://cdn.jsdelivr.net/npm/smooth-scrollbar/dist/smooth-scrollbar.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smooth-scrollbar/dist/smooth-scrollbar.css" />
+    <div id="extension-list"></div>
 
-  <script>   
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Fetch extensions.json
       fetch('https://rubyteam.tech/data/extensions.json')
@@ -136,8 +132,6 @@
         .catch(error => console.error('Error fetching extensions.json:', error));
     });
   </script>
-
-  <script> Scrollbar.initAll(); </script>
 
 </body>
 </html>
