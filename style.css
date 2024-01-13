@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: rgb(0, 14, 35);
   color: #e7e5ff;
   margin: 0;
@@ -73,4 +73,99 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.bg-darker {
+  background-color: #121212; /* this is a common dark mode background color */
+}
+
+body.bg-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.bg-darker {
+  background-color: #1a1a1a;
+}
+
+a.text-white, .text-white {
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #fff;
+}
+
+li {
+  color: #fff;
+}
+
+body.bg-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.extension-section {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.extension-thumb {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.btn-primary, .btn-secondary {
+  margin: 5px;
+  padding: 10px 15px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #fff;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.generated-id {
+  font-size: 30px;
+  text-align: left;
+}
+
+.code-block-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.code-block {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: monospace;
+}
+
+.copy-button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.text-center {
+  color: #fff;
+}
+
+.statistics {
+  color: #fff;
+}
+
+.center-text {
+  text-align: center;
 }

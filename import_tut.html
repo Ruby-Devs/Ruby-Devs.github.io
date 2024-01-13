@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +8,21 @@
   <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-  <header>
-    <a href="/"><img src="logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
-    <div id="headertxt">
-      <h1>Ruby Devs</h1>
-      <p>We make PenguinMod and TurboWarp cooler.</p>
+<body class="bg-dark text-white">
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img style="margin-left: 20px;" src="logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid"></a>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
+        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
+      </div>
     </div>
   </header>
 
-  <section>
-    <h2>How to import an extension</h2>
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-4">How to import an extension</h2>
     <h3>In PenguinMod</h3>
     <ol>
       <li>Go to the <a href="https://studio.penguinmod.com/editor.html" target="_blank">editor</a></li>
@@ -34,6 +35,6 @@
       <li>Enjoy!</li>
     </ol>
   </section>
-</body>
 
+</body>
 </html>

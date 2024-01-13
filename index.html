@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Ruby Devs - Main" />
   <meta property="og:description" content="Welcome to our website! We make wonderful extensions that work on both PenguinMod and TurboWarp" />
   <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header>
-    <a href="/"><img src="logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
-    <div id="headertxt">
-      <h1>Ruby Devs</h1>
-      <p>We make PenguinMod and TurboWarp cooler.</p>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">  </head>
+<body class="bg-dark text-white">  
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img style="margin-left: 20px;" src="logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid"></a>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
+        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
+      </div>
     </div>
   </header>
-  
-  <section>
-    <h2>About Us</h2>
-    <p>We are a group of developers that just want to share their cool extensions with everyone.<br>We work as a group,
-      ensuring everyone's comfy and productive at the same time.</p>
 
-    <p>It's possible for you to not have any experience whatsoever in coding, and join us anyway!<br>We have a place for
-      <b>everyone</b>, both coders and non-coders.</p>
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-4 text-white">About Us</h2>
+    <p class="text-white">We are a group of developers that just want to share their cool extensions with everyone. We work as a group, ensuring everyone's comfy and productive at the same time.</p>
+    <p class="text-white">It's possible for you to not have any experience whatsoever in coding, and join us anyway! We have a place for <b>everyone</b>, both coders and non-coders.</p>
   </section>
 
-  <section>
-    <h2>Try our extensions</h2>
-    <p>Either join our Discord server to get the files, or visit <a target="_blank" href="gallery.html">our gallery!</a>
-    </p>
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-4 text-white">Try our extensions</h2>
+    <p class="text-white">Either join our Discord server to get the files, or visit <a target="_blank" href="gallery.html" class="text-white">our gallery!</a></p>
   </section>
+
+
+  <section id="join" class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-4 text-white">Join Our Community</h2>
+    <p class="text-white">Connect with like-minded enthusiasts, share your projects that are facilitated by our extensions, and stay updated on the latest new extensions in the Ruby Devs server.</p>
+    <p class="lead text-white">Ready to dive in? Let's build something incredible together!</p>
+    <a href="https://dsc.gg/rubydevs-exts" class="btn btn-primary">Join our Discord server</a>
 
   <section id="join">
     <h2>Join Our Community</h2>
@@ -41,9 +46,11 @@
       updated on the latest new extensions in the Ruby Devs server.</p>
     <p class="highlight">Ready to dive in? Let's build something incredible together!</p>
     <a href="https://dsc.gg/rubydevs-exts"><button>Join our Discord server</button></a>
+
     <br>
     <iframe src="https://discord.com/widget?id=1192346720273702952&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </section>
-</body>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
