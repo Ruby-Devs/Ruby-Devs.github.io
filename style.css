@@ -7,6 +7,19 @@ body {
   padding: 0;
 }
 
+.menuTab {
+  --angle: 0deg;
+  width: 500px;
+  background-image: linear-gradient(to top, #380000, #1f0000);
+  color: white;
+  padding: 15px;
+  border: 3px solid red;
+  border-radius: 15px;
+  animation: 1s rotate linear infinite;
+  transition-duration: 50ms;
+  text-align: left;
+}
+
 #logo {
     margin-right: 10px; /* Adjust margin as needed */
     margin-top: -7px; /* Adjust margin as needed */
