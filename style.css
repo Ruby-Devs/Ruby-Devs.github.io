@@ -1,23 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&display=swap');
-
 body {
-  font-family: 'Play', sans-serif;
-  background-color: #240000;
+  font-family: 'Cabin', sans-serif;
+  background: rgb(0, 14, 35);
+  background: -moz-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  background: -webkit-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  background: linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000e23", endColorstr="#00213a", GradientType=1);
+  color: #e7e5ff;
   margin: 0;
   padding: 0;
-}
-
-.menuTab {
-  --angle: 0deg;
-  width: 500px;
-  background-image: linear-gradient(to top, #380000, #1f0000);
-  color: white;
-  padding: 15px;
-  border: 3px solid red;
-  border-radius: 15px;
-  animation: 1s rotate linear infinite;
-  transition-duration: 50ms;
-  text-align: left;
+  min-height: 100vh; /* Set a minimum height to include the footer */
+  box-sizing: border-box; /* Include padding and border in the total height */
 }
 
 #logo {
@@ -35,17 +27,10 @@ header {
 h1 {
   margin: 0;
   font-size: 2em;
-  font-family: Chakra Petch;
-}
-
-h2 {
-  color: white;
-  font-family: Chakra Petch;
 }
 
 h1, p {
   margin: 0;
-  color: white;
 }
 
 section {
@@ -55,19 +40,21 @@ section {
   font-weight: bold;
 }
 
+.button {
 button {
-  color: red;
-  padding: 10px;
-  border: red solid 3px;
-  background-color: #380000;
-  border-radius: 20px;
-  text-decoration: none;
-  transition-duration: 150ms;
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  margin: 0.5em 0;
+@@ -51,15 +58,16 @@ p {
+  color: #fff;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
+.button:hover {
 button:hover {
-  color: #380000;
-  background-color: red;
+  background-color: #cc3700;
 }
 
 footer {
