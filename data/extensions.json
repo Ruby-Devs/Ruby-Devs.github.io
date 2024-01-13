@@ -4,5 +4,12 @@
     "description": "Show weather and location data for any place in our world.<br>Data that could be used for doxxing is deleted from results.",
     "url": "https://rubyteam.tech/cdn/extensions/turboweather.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/turboweather.webp"
+  },
+  {
+    "name": "Analytics",
+    "description": "See Analytics about your project, using our sofisticated web software.",
+    "url": "https://rubyteam.tech/cdn/extensions/analytics.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp"
   }
+]
 ]
