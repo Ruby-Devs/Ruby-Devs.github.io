@@ -7,13 +7,13 @@
   },
   {
     "name": "Analytics",
-    "description": "See Analytics about your project, using our sofisticated web software.",
+    "description": "See Analytics about your project, using our sophisticated web tools.",
     "url": "https://rubyteam.tech/cdn/extensions/analytics.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp"
   },
   {
     "name": "PenguinHook",
-    "description": "Send Webhook requests can be discord or any type of webhook",
+    "description": "Send Webhook requests, that can be Discord or any type of webhook.",
     "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinhook.png"
   }
