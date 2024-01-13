@@ -126,7 +126,7 @@
             setTimeout(() => {
               const section = div.children[index];
               section.classList.add('fade-in');
-            }, 1000 + 200 * index);
+            }, 500 + 200 * index);
           });
         })
         .catch(error => console.error('Error fetching extensions.json:', error));
