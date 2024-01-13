@@ -11,6 +11,16 @@
       .clickable {
         cursor: pointer;
       }
+
+      /* Add fade-in animation */
+      section {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      section.fade-in {
+        opacity: 1;
+      }
     </style>
 </head>
 <body>
@@ -106,6 +116,11 @@
 
             // Append the section to the div
             div.appendChild(section);
+
+            // Add the fade-in class after a delay for each section
+            setTimeout(() => {
+              section.classList.add('fade-in');
+            }, 200 * data.indexOf(extension));
           });
 
           // Append the div to the extensionList
