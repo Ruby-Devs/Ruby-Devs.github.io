@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    #id {
+      font-size: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="/"><img src="/logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
+    <div id="headertxt">
+      <h1>Ruby Devs</h1>
+      <p>We make PenguinMod and TurboWarp cooler.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Welcome to Ruby Analytics!</h2>
+    <p>This extension offers many analysis-related features. Easily examine your project's attention rate, total clicks and more!</p>
+    <p>To start using this extension, click the button below to generate a new ID for your project.</p>
+    <p style="color: red;">You'll have to do this for each and every project you want analytics on.</p>
+    <br>
+    <p>Once you generate the ID, it will be automatically copied to your clipboard. <b>Don't</b> lose it.</p>
+    <center><button onclick="fetchid()">New ID</button></center>
+    <div>
+      <p id="id"></p>
+    </div>
+  </section> 
+<script>
+  async function fetchid() {
+    const response = await fetch('https://api.rubyteam.tech/id');
+    const data = await response.json();
+    const id = data.id;
+    const elementid = document.getElementById("id");
+    elementid.innerHTML = id;
+    
+    // Copy the ID to the clipboard
+    const el = document.createElement('textarea');
+    el.value = id;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
+</script>
+</body>
+
+</html>

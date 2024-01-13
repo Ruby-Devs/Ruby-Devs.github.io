@@ -3,24 +3,31 @@
 body {
   font-family: 'Cabin', sans-serif;
   background: rgb(0, 14, 35);
-  background: -moz-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
-  background: -webkit-linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
-  background: linear-gradient(0deg, rgba(0, 14, 35, 1) 0%, rgba(0, 33, 58, 1) 77%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000e23", endColorstr="#00213a", GradientType=1);
   color: #e7e5ff;
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Set a minimum height to include the footer */
+  box-sizing: border-box; /* Include padding and border in the total height */
+}
+
+#logo {
+    margin-right: 10px; /* Adjust margin as needed */
+    margin-top: -7px; /* Adjust margin as needed */
 }
 
 header {
   background-color: #333;
   padding: 1em;
-  text-align: center;
+  display: flex;
 }
 
 h1 {
   margin: 0;
   font-size: 2em;
+}
+
+h1, p {
+  margin: 0;
 }
 
 section {
@@ -42,7 +49,7 @@ p {
   font-weight: bold;
 }
 
-.button {
+button {
   display: inline-block;
   padding: 0.8em 1.5em;
   margin: 0.5em 0;
@@ -51,15 +58,16 @@ p {
   color: #fff;
   border-radius: 12px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-.button:hover {
+button:hover {
   background-color: #cc3700;
 }
 
 footer {
   text-align: center;
-  padding: 0.01em;
+  padding: 1em;
   background-color: #333;
   color: #fff;
   position: fixed;
