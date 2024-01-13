@@ -10,5 +10,11 @@
     "description": "See Analytics about your project, using our sofisticated web software.",
     "url": "https://rubyteam.tech/cdn/extensions/analytics.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp"
+  },
+  {
+    "name": "PenguinHook",
+    "description": "Send Webhook requests can be discord or any type of webhook",
+    "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinhook.png"
   }
 ]
