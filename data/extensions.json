@@ -1,9 +1,9 @@
 [
   {
-    "name": "TurboWeather",
-    "description": "Show weather and location data for any place in our world. Data that could be used for doxxing is deleted from results.",
-    "url": "https://rubyteam.tech/cdn/extensions/turboweather.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/turboweather.webp"
+    "name": "PenguinHook",
+    "description": "Send Webhook requests, that can be Discord or any type of webhook.",
+    "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinhook.png"
   },
   {
     "name": "Analytics",
@@ -12,9 +12,9 @@
     "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp"
   },
   {
-    "name": "PenguinHook",
-    "description": "Send Webhook requests, that can be Discord or any type of webhook.",
-    "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinhook.png"
+    "name": "TurboWeather",
+    "description": "Show weather and location data for any place in our world. Data that could be used for doxxing is deleted from results.",
+    "url": "https://rubyteam.tech/cdn/extensions/turboweather.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/turboweather.webp"
   }
 ]
