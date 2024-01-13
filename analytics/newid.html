@@ -55,18 +55,6 @@
     
             // Show the code block
             document.getElementById("code-block-container").style.display = "flex";
-    
-            // Copy the ID to the clipboard
-            copyToClipboard();
-    
-            // Show SweetAlert2 notification in the center of the screen
-            Swal.fire({
-                title: 'ID Copied!',
-                icon: 'success',
-                position: 'center',
-                timer: 2000,
-                showConfirmButton: false,
-            });
         }
     
         function copyToClipboard() {
@@ -77,6 +65,15 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
+
+            // Show SweetAlert2 notification in the center of the screen
+            Swal.fire({
+                title: 'ID Copied!',
+                icon: 'success',
+                position: 'center',
+                timer: 2000,
+                showConfirmButton: false,
+            });
         }
     </script>
 </body>
