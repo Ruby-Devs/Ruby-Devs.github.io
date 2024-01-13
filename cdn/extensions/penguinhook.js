@@ -111,7 +111,7 @@
             {
                 opcode: 'sendjson',
                 blockType: Scratch.BlockType.COMMAND,
-                text: 'send using json [JSON_DATA] webhook url: [WEBHOOK_URL]',
+                text: 'send using json [JSON_DATA] webhook url: [WEBHOOK]',
                 arguments: {
                   JSON_DATA: {
                     type: Scratch.ArgumentType.STRING,
