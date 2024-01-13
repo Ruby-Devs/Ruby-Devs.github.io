@@ -1,61 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body class="bg-dark text-white">
-  <header class="container py-4">
-    <div class="row">
-      <div class="col-4">
-        <a href="/"><img src="/logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid" style="margin-left: 20px;"></a>
-      </div>
-      <div class="col-8">
-        <h1>Ruby Devs</h1>
-        <p>We make PenguinMod and TurboWarp cooler.</p>
-      </div>
-    </div>
-  </header>
-  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
-    <h2>Welcome to Ruby Analytics!</h2>
-    <p>This extension offers many analysis-related features. Easily examine your project's attention rate, total clicks and more!</p>
-    <p>To start using this extension, click the button below to generate a new ID for your project.</p>
-    <p class="text-danger">You'll have to do this for each and every project you want analytics on.</p>
-    <br>
-    <div class="text-center">
-      <button onclick="fetchid()" class="btn btn-primary">New ID</button>
-    </div>
-    <div id="code-block-container" class="code-block-container" style="display: none;">
-      <code id="id" class="code-block"></code>
-      <button onclick="copyToClipboard()" class="btn btn-secondary copy-button">Copy</button>
-    </div>
-  </section> 
-  <script>
-    async function fetchid() {
-      const response = await fetch('https://api.rubyteam.tech/id');
-      const data = await response.json();
-      const id = data.id;
-      const elementid = document.getElementById("id");
-      elementid.textContent = id;
-  
-      // Show the code block and copy button
-      document.getElementById("code-block-container").style.display = "flex";
-  
-      // Copy the ID to the clipboard
-      copyToClipboard();
-    }
-  
-    function copyToClipboard() {
-      const id = document.getElementById("id").textContent;
-      const el = document.createElement('textarea');
-      el.value = id;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-    }
-  </script>
+    <header class="container py-4">
+        <div class="row">
+            <div class="col-4">
+                <a href="/"><img src="/logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid" style="margin-left: 20px;"></a>
+            </div>
+            <div class="col-8">
+                <h1>Ruby Devs</h1>
+                <p>We make PenguinMod and TurboWarp cooler.</p>
+            </div>
+        </div>
+    </header>
+    <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+        <h2>Welcome to Ruby Analytics!</h2>
+        <p>This extension offers many analysis-related features. Easily examine your project's attention rate, total clicks and more!</p>
+        <p>To start using this extension, click the button below to generate a new ID for your project.</p>
+        <p class="text-danger">You'll have to do this for each and every project you want analytics on.</p>
+        <br>
+        <div class="text-center">
+            <!-- Use Bootstrap button classes -->
+            <button onclick="fetchid()" class="btn btn-primary">New ID</button>
+        </div>
+        <div id="code-block-container" class="code-block-container" style="display: none;">
+            <code id="id" class="code-block"></code>
+            <!-- Use Bootstrap button classes -->
+            <button onclick="copyToClipboard()" class="btn btn-secondary copy-button">Copy</button>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- React-Toastify library -->
+    <script src="https://cdn.jsdelivr.net/npm/react-toastify@7.2.5/dist/ReactToastify.min.js"></script>
+    <script>
+        async function fetchid() {
+            const response = await fetch('https://api.rubyteam.tech/id');
+            const data = await response.json();
+            const id = data.id;
+            const elementid = document.getElementById("id");
+            elementid.textContent = id;
+
+            // Show the code block
+            document.getElementById("code-block-container").style.display = "flex";
+
+            // Copy the ID to the clipboard
+            copyToClipboard();
+
+            // Show React-Toastify notification
+            toast.success('ID Copied!', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+
+        function copyToClipboard() {
+            const id = document.getElementById("id").textContent;
+            const el = document.createElement('textarea');
+            el.value = id;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        }
+    </script>
+    <!-- Initialize React-Toastify -->
+    <script>
+        const { ToastContainer, toast } = ReactToastify;
+        ReactDOM.render(<ToastContainer />, document.getElementById('root'));
+    </script>
 </body>
 </html>
