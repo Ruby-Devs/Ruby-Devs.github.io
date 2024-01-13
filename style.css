@@ -1,76 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
 
 body {
-  font-family: 'Cabin', sans-serif;
-  background: rgb(0, 14, 35);
-  color: #e7e5ff;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh; /* Set a minimum height to include the footer */
-  box-sizing: border-box; /* Include padding and border in the total height */
-}
-
-#logo {
-    margin-right: 10px; /* Adjust margin as needed */
-    margin-top: -7px; /* Adjust margin as needed */
-}
-
-header {
-  background-color: #333;
-  padding: 1em;
-  display: flex;
+  background-color: #240000;
 }
 
 h1 {
+  font-family: Chakra Petch;
   margin: 0;
-  font-size: 2em;
-}
-
-h1, p {
-  margin: 0;
-}
-
-section {
-  max-width: 800px;
-  margin: 2em auto;
-  padding: 1em;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #333;
-  border-radius: 12px;
+  color: white;
+  font-size: 60px;
 }
 
 p {
-  line-height: 1.6;
+  font-family: Play;
+  color: white;
 }
 
-.highlight {
-  color: #d42b2b;
-  font-weight: bold;
+.menuTab {
+  --angle: 0deg;
+  width: 500px;
+  background-image: linear-gradient(to top, #380000, #1f0000);
+  color: white;
+  padding: 15px;
+  border: 3px solid red;
+  border-radius: 15px;
+  animation: 1s rotate linear infinite;
+  transition-duration: 50ms;
+  text-align: left;
 }
 
-button {
-  display: inline-block;
-  padding: 0.8em 1.5em;
-  margin: 0.5em 0;
+.button {
+  color: red;
+  padding: 10px;
+  border: red solid 3px;
+  background-color: #380000;
+  border-radius: 20px;
   text-decoration: none;
-  background-color: #ff4500;
-  color: #fff;
-  border-radius: 12px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  transition-duration: 150ms;
 }
 
-button:hover {
-  background-color: #cc3700;
-}
-
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #333;
-  color: #fff;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.button:hover {
+  color: #380000;
+  background-color: red;
 }
