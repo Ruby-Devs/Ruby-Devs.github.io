@@ -22,7 +22,9 @@
             }
         }
 
+        /* Visibility will be visible if doesnt teh teing */
         .extension-section {
+            visibility: hidden;
             animation: fadeIn 0.5s ease-in-out;
         }
 
@@ -87,6 +89,7 @@
             });
 
             section.appendChild(button);
+            section.style.visibility = 'visible'; // will delete if doesnt work
 
             if (extension.howto) {
               const howto = document.createElement('a');
