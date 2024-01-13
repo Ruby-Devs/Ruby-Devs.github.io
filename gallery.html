@@ -7,131 +7,93 @@
     <meta property="og:description" content="See our created Extensions!" />
     <title>Ruby Devs - Extension List</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      .clickable {
-        cursor: pointer;
-      }
-
-      /* Add fade-in animation */
-      section {
-        opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-      }
-
-      section.fade-in {
-        opacity: 1;
-      }
-    </style>
 </head>
-<body>
-  <header>
-    <a href="/"><img src="logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
-    <div id="headertxt">
-      <h1>Ruby Devs</h1>
-      <p>We make PenguinMod and TurboWarp cooler.</p>
+<body class="bg-dark text-white">
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img src="logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid" style="margin-left: 20px;"></a>
+      </div>
+      <div class="col-8">
+        <h1>Ruby Devs</h1>
+        <p>We make PenguinMod and TurboWarp cooler.</p>
+      </div>
     </div>
   </header>
-    <div id="extension-list"></div>
+  <p>  </p>
+  <br>
+  <p class="center-text">Don't know how to import extensions? Look <a href="/import_tut.html">here</a>.</p>
+  <div id="extension-list" class="container py-5"></div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Fetch extensions.json
       fetch('https://rubyteam.tech/data/extensions.json')
         .then(response => response.json())
         .then(data => {
-          // Generate list items dynamically
           const extensionList = document.getElementById('extension-list');
-          const div = document.createElement('div');
-          const br = document.createElement('br');
-
           data.forEach(extension => {
             const section = document.createElement('section');
-            
-            // Add style to center the thumbnail
-            section.style.textAlign = 'center';
-
+            section.classList.add('extension-section');
+    
             const thumb = document.createElement('img');
             thumb.src = extension.thumb;
-            thumb.height = "330";
-
-            // Create h1 and p elements for the section
+            thumb.classList.add('extension-thumb');
+    
             const h2 = document.createElement('h2');
-            h2.innerHTML = extension.name;
-
+            h2.textContent = extension.name;
+    
             const p = document.createElement('p');
-            p.innerHTML = extension.description;
-
-            // Append h1 and p to the section
+            p.textContent = extension.description;
+    
             section.appendChild(thumb);
             section.appendChild(h2);
             section.appendChild(p);
-            section.appendChild(br);
-
+    
             const button = document.createElement('button');
-            button.innerHTML = "Try " + extension.name;
-            button.classList.add('clickable');
-
-            const howto = document.createElement('a');
-            howto.innerHTML = " <button>How to import extensions</button>";
-            howto.href = "import_tut.html";
-
-            // Add click event to redirect to the URL
+            button.textContent = "Try " + extension.name;
+            button.classList.add('btn', 'btn-primary', 'mr-2');
             button.addEventListener('click', function () {
-              // URL of the JavaScript file
-              const url = extension.url;
-
-              // Fetch the contents of the JavaScript file
-              fetch(url)
-                .then(response => response.text()) // assuming the file is text-based
-                .then(data => {
-                  // Create a Blob from the fetched data
-                  const blob = new Blob([data], { type: 'application/javascript' });
-
-                  // Create a link element
-                  const link = document.createElement('a');
-
-                  // Set the href attribute of the link to the Blob URL
-                  link.href = URL.createObjectURL(blob);
-
-                  // Set the download attribute with the desired file name
-                  link.download = extension.name + ".js";
-
-                  // Append the link to the document
-                  document.body.appendChild(link);
-
-                  // Trigger a click on the link to start the download
-                  link.click();
-
-                  // Remove the link from the document
-                  document.body.removeChild(link);
-                })
-                .catch(error => {
-                  console.error('Error fetching and downloading the file:', error);
-                });
+              fetchExtension(extension.url, extension.name);
             });
-
-            // Append the buttons to the section
+    
             section.appendChild(button);
-            section.appendChild(howto);
-
-            // Append the section to the div
-            div.appendChild(section);
-          });
-
-          // Append the div to the extensionList
-          extensionList.appendChild(div);
-
-          // Add the fade-in class after a delay for each section
-          data.forEach((extension, index) => {
-            setTimeout(() => {
-              const section = div.children[index];
-              section.classList.add('fade-in');
-            }, 500 + 200 * index);
+    
+            if (extension.howto) {
+              const howto = document.createElement('a');
+              howto.href = extension.howto;
+              howto.textContent = "How to import";
+              howto.classList.add('btn', 'btn-secondary');
+              section.appendChild(howto);
+            }
+    
+            extensionList.appendChild(section);
           });
         })
         .catch(error => console.error('Error fetching extensions.json:', error));
     });
-  </script>
-
+    
+    function fetchExtension(url, name) {
+      fetch(url)
+        .then(response => response.blob()) // Get the response as a blob
+        .then(blob => {
+          // Create a link element
+          const link = document.createElement('a');
+          // Set the href attribute of the link to the Blob URL
+          link.href = URL.createObjectURL(blob);
+          // Set the download attribute with the desired file name
+          link.download = name + ".js";
+          // Append the link to the document
+          document.body.appendChild(link);
+          // Trigger a click on the link to start the download
+          link.click();
+          // Remove the link from the document
+          document.body.removeChild(link);
+        })
+        .catch(error => {
+          console.error('Error fetching and downloading the file:', error);
+        });
+    }
+    </script>
+    
 </body>
 </html>

@@ -1,112 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
   <link rel="stylesheet" href="/style.css">
   <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-  <style>
-    #id {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    #loading-box {
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #loading-spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    #info {
-      display: none;
-    }
-
-    /* Animation for the statistics */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
-    }
-
-    .animated-text {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    .fade-out {
-      animation: fadeOut 1s forwards;
-    }
-  </style>
 </head>
+<body class="bg-dark text-white">
 
-<body>
-
-  <header>
-    <a href="/"><img src="/logo.webp" alt="Ruby Devs Logo" height="80" id="logo"></a>
-    <div id="headertxt">
-      <h1>Ruby Devs</h1>
-      <p>We make PenguinMod and TurboWarp cooler.</p>
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img src="/logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid" style="margin-left: 20px;"></a>
+      </div>
+      <div class="col-8">
+        <h1>Ruby Devs</h1>
+        <p>We make PenguinMod and TurboWarp cooler.</p>
+      </div>
     </div>
   </header>
 
-  <section>
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
     <h2>See a project's statistics</h2>
-    <form id="form">
+    <form id="form" class="text-center">
       <label for="inputField">Enter Ruby ID</label><br>
       <input type="text" id="inputField" name="inputField" required>
       <br><br>
-      <button type="submit">See stats</button>
+      <button type="submit" class="btn btn-primary">See stats</button>
     </form>
   </section>
 
-  <center>
-    <div id="loading-box">
-      <div id="loading-spinner"></div>
-    </div>
-  </center>
+  <div id="loading-box" class="d-flex justify-content-center align-items-center" style="display: none;">
+    <div id="loading-spinner"></div>
+  </div>
 
-  <section id="info">
+  <section id="stats-info" class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center" style="display: none;">
     <h2>Statistics</h2>
-    <div id="clicks" class="animated-text"></div>
-    <div id="stops" class="animated-text"></div>
-    <div id="flags" class="animated-text"></div>
-    <div id="keys" class="animated-text"></div>
-    <div id="success" class="animated-text"></div>
+    <div style="color: #fff;" id="clicks"></div>
+    <div style="color: #fff;" id="stops"></div>
+    <div style="color: #fff;" id="flags"></div>
+    <div style="color: #fff;" id="keys"></div>
+    <div id="success"></div>
   </section>
 
   <script>
@@ -115,71 +50,74 @@
       const projectStopsWeight = 0.2;
       const keyPressesWeight = 0.2;
       const clicksWeight = 0.2;
-
-      // Calculate the weighted scores for each parameter
+      
       const projectRunsScore = projectRuns * projectRunsWeight;
       const projectStopsScore = projectStops * projectStopsWeight;
       const keyPressesScore = keyPresses * keyPressesWeight;
       const clicksScore = clicks * clicksWeight;
-
-      // Sum up the scores to get the overall success score
+      
       const totalScore = projectRunsScore + projectStopsScore + keyPressesScore + clicksScore;
-
-      // The success percentage is the total score mapped to a percentage scale (0 to 100)
-      const successPercentage = Math.min(100, totalScore); // Cap at 100%
-
+      const successPercentage = Math.min(100, totalScore);
+      
       return successPercentage;
     }
-
+    
     $(function () {
       $("#form").on("submit", async function (e) {
         e.preventDefault();
-
-        // Check if the loading-box exists, if not create it
-        let loadingBox = $("#loading-box");
-
-        // Show loading spinner with fade in animation
-        $("#loading-box").show().addClass("animated-text");
-        $("#loading-spinner").show();
-
-        var id = document.getElementById('inputField').value;
+        $('#loading-box').show();
+  
+        var id = $('#inputField').val();
         let response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_clickCanvas");
         let data = await response.json();
         let clicks = data.count ?? 0;
-
+  
         response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_projectStop");
         data = await response.json();
         let stops = data.count ?? 0;
-
+  
         response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_flagClick");
         data = await response.json();
         let flags = data.count ?? 0;
-
+  
         response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_keyPresses");
         data = await response.json();
         let keys = data.count ?? 0;
-
+  
         let final = {
           "clicks": clicks,
           "stops": stops,
           "flags": flags,
           "keys": keys,
         }
-
-        // Update #info section with fetched data and animate text
-        $("#clicks").text("Clicks inside the project: " + final.clicks).addClass("animated-text");
-        $("#stops").text("Stops: " + final.stops).addClass("animated-text");
-        $("#flags").text("Flag presses: " + final.flags).addClass("animated-text");
-        $("#keys").text("Key presses: " + final.keys).addClass("animated-text");
-        $("#success").text("Approximate success percentage: " + success(final.clicks, final.stops, final.flags, final.keys) + "%").addClass("animated-text");
-
-        $("#loading-box").removeClass("animated-text").addClass("fade-out").one("animationend", function () {
-          $(this).hide().removeClass("fade-out");
-        });
-        
-        setTimeout(function () {
-          $("#info").show().addClass("animated-text");
-        }, 1000); // 1000 milliseconds = 1 second
+  
+        if (clicks === 0 && stops === 0 && flags === 0 && keys === 0) {
+          $('#stats-info').html('<div style="color: yellow;">No statistics yet</div>');
+        } else {
+          let successPercentage = success(final.clicks, final.stops, final.flags, final.keys);
+          let successColor = 'cyan';
+          if (successPercentage <= 10) {
+            successColor = 'darkred';
+          } else if (successPercentage <= 25) {
+            successColor = 'red';
+          } else if (successPercentage <= 50) {
+            successColor = 'yellow';
+          } else if (successPercentage <= 75) {
+            successColor = 'green';
+          }
+          
+          $('#stats-info').html(`
+            <h2>Statistics</h2>
+            <div style="color: #fff;">Clicks inside the project: ${final.clicks}</div>
+            <div style="color: #fff;">Stops: ${final.stops}</div>
+            <div style="color: #fff;">Flag presses: ${final.flags}</div>
+            <div style="color: #fff;">Key presses: ${final.keys}</div>
+            <div style="color: ${successColor};">Approximate success percentage: ${successPercentage.toFixed(2)}%</div>
+          `);
+        }
+  
+        $('#loading-box').hide();
+        $('#stats-info').show();
       });
     });
   </script>
