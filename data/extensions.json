@@ -1,5 +1,11 @@
 [
   {
+    "name": "Speech2Text",
+    "description": "Make it listen in the microphone and get the text said",
+    "url": "https://rubyteam.tech/cdn/extensions/speechtotext.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/speechtotext.png"
+  },
+  {
     "name": "PenguinHook",
     "description": "Send Webhook requests, that can be Discord or any type of webhook.",
     "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
