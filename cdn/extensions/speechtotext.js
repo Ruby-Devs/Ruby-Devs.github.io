@@ -181,10 +181,12 @@
 
                 this.recognition.onend = () => {
                     this.recognition.start();
+                    alert("Speech2Text: Recording Started")
                 };
 
                 this.recognition.lang = this.selectedLanguage;
                 this.recognition.start();
+                alert("Speech2Text: Recording Started")
             }
         }
 
