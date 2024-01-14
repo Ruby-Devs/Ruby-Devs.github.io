@@ -23,15 +23,39 @@
     }
 }
  #extension-list {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
- .extension-section {
-     flex: 0 0 calc(33.333% - 20px);
-    /* Adjust the percentage as needed */
-     box-sizing: border-box;
-     margin-bottom: 20px;
+
+.extension-section {
+    flex: 0 0 calc(33.333% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    height: 300px; /* Set a fixed height for the extension-section */
+    overflow: hidden; /* Hide overflow content */
+}
+
+/* Delay animation for each box */
+.extension-section:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.extension-section:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* Add this class to handle text overflow */
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 /* Delay animation for each box */
  .extension-section:nth-child(odd) {
@@ -39,12 +63,6 @@
 }
  .extension-section:nth-child(even) {
      animation-delay: 0.4s;
-}
-
-.container::after {
-    content: "";
-    display: table;
-    clear: both;
 }
     </style>
 </head>
