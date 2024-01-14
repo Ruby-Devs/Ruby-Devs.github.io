@@ -10,30 +10,42 @@
     <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
-        /* Add custom CSS for fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+ 
+/* Add custom CSS for fade-in animation */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+    }
+     to {
+         opacity: 1;
+         transform: translateY(0);
+    }
+}
+ #extension-list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+}
+ .extension-section {
+     flex: 0 0 calc(33.333% - 20px);
+    /* Adjust the percentage as needed */
+     box-sizing: border-box;
+     margin-bottom: 20px;
+}
+/* Delay animation for each box */
+ .extension-section:nth-child(odd) {
+     animation-delay: 0.2s;
+}
+ .extension-section:nth-child(even) {
+     animation-delay: 0.4s;
+}
 
-        .extension-section {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Delay animation for each box */
-        .extension-section:nth-child(odd) {
-            animation-delay: 0.2s;
-        }
-
-        .extension-section:nth-child(even) {
-            animation-delay: 0.4s;
-        }
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
     </style>
 </head>
 <body class="bg-dark text-white">
