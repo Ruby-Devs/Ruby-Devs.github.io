@@ -136,8 +136,9 @@ body.bg-dark {
 }
 
 .btn-primary, .btn-secondary {
-  margin: 5px;
-  padding: 10px 15px;
+  /*margin: 5px;
+  padding: 10px 15px;*/
+  border: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
