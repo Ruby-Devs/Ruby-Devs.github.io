@@ -69,6 +69,8 @@ button {
   font-size: 17px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
 
 button:hover {
@@ -139,8 +141,6 @@ body.bg-dark {
 .btn-primary, .btn-secondary {
   /*margin: 5px;
   padding: 10px 15px;*/
-  border: none;
-  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6, p {
