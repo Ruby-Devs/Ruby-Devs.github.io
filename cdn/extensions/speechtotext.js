@@ -168,25 +168,28 @@
             this.hearAndWait();
         }
 
-        hearAndWait() {
+        async hearAndWait() {
             if (!this.recognition) {
-                this.recognition = new webkitSpeechRecognition();
-                this.recognition.continuous = true;
-                this.recognition.interimResults = true;
-
-                this.recognition.onresult = (event) => {
-                    const final_transcript = this.extractFinalTranscript(event);
-                    this.setRecognizedText(final_transcript);
-                };
-
-                this.recognition.onend = () => {
+                const canrecord = await Scratch.canRecordAudio()
+                if (canrecord === true) {
+                    this.recognition = new webkitSpeechRecognition();
+                    this.recognition.continuous = true;
+                    this.recognition.interimResults = true;
+    
+                    this.recognition.onresult = (event) => {
+                        const final_transcript = this.extractFinalTranscript(event);
+                        this.setRecognizedText(final_transcript);
+                    };
+    
+                    this.recognition.onend = () => {
+                        this.recognition.start();
+                    };
+    
+                    this.recognition.lang = this.selectedLanguage;
                     this.recognition.start();
-                    alert("Speech2Text: Recording Started")
-                };
-
-                this.recognition.lang = this.selectedLanguage;
-                this.recognition.start();
-                alert("Speech2Text: Recording Started")
+                } else {
+                    return console.log("Recording was Denied");
+                }
             }
         }
 
