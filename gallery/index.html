@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ruby Extension Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap">
+  <link rel="icon" type="image/x-icon" href="https://dodecathedev.github.io/rubygallery/img/ruby.png">
+</head>
+
+<body>
+  <body>
+  <div class="navbar">
+    <div class="navbar-content">
+      <img src="img/ruby.png" style="border-bottom: none;" alt="rubylogo">
+      &nbsp;
+      <p>Ruby Extension Gallery</p>
+    </div>
+  </div>
+    <br>
+    <center>
+    <p style="font-size: 18px; color: white;">&lt; Made by <a href="https://www.youtube.com/channel/UCd4iCTGKxD-05nzx4oibveg" target="_blank" style="color: #0099FF">Azuritii</a> &gt;</p>
+      </center>
+  <div class="container" id="extensionContainer">
+    <!-- Extensions will be dynamically added here -->
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch JSON data from the website
+      fetch('https://rubyteam.tech/data/extensions.json')
+        .then(response => response.json())
+        .then(data => {
+          // Create extensions based on JSON data
+          createExtensions(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    });
+
+    function createExtensions(data) {
+      const container = document.getElementById('extensionContainer');
+
+      // Loop through the JSON data and create extensions
+      data.forEach((extensionData, index) => {
+        const extension = document.createElement('div');
+        extension.className = 'extension';
+
+        const img = document.createElement('img');
+        img.src = extensionData.thumb;
+        img.alt = extensionData.name;
+
+        const content = document.createElement('div');
+        content.className = 'content';
+
+        const strong = document.createElement('strong');
+        strong.textContent = extensionData.name;
+
+        const p = document.createElement('p');
+        p.textContent = extensionData.description;
+
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy';
+        copyBtn.textContent = 'Copy URL';
+        copyBtn.setAttribute('copy-text', extensionData.url);
+        copyBtn.addEventListener('click', function () {
+          copyToClipboard(extensionData.url);
+        });
+
+        // Append elements to the extension
+        content.appendChild(copyBtn);
+        content.appendChild(strong);
+        content.appendChild(p);
+
+        extension.appendChild(img);
+        extension.appendChild(content);
+
+        // Append the extension to the container
+        container.appendChild(extension);
+      });
+    }
+
+    function copyToClipboard(text) {
+      const tempElement = document.createElement('textarea');
+      tempElement.value = text;
+      document.body.appendChild(tempElement);
+      tempElement.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempElement);
+    }
+  </script>
+
+</body>
+
+</html>
