@@ -61,6 +61,7 @@ a {
   margin: 10px;
   width: calc(100% - 20px);
   max-width: 300px;
+  border: 2px white solid;
 }
 
 .extension:hover {
