@@ -65,6 +65,20 @@ a {
   cursor: help;
 }
 
+.recommended-extension {
+    animation: glowAnimation 1s infinite alternate;
+  }
+
+  @keyframes glowAnimation {
+    from {
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+
+    to {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+  }
+
 .extension:hover {
   transform: scale(1.05);
 }
