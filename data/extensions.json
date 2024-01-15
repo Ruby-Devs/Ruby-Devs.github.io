@@ -1,7 +1,7 @@
 [
   {
     "name": "TurboGemini",
-    "description": "An usable AI extensions that use Google Gemini AI for response",
+    "description": "Use Google's brand-new Gemini AI technology (similar to ChatGPT) inside your projects.",
     "url": "https://rubyteam.tech/cdn/extensions/geminiai.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.webp"
   },
