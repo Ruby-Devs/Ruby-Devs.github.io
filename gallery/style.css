@@ -81,7 +81,7 @@ a {
   border: 2px solid #ffd700; /* Golden border */
   box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Golden glow effect */
   position: relative; 
-  animation: swayAnimation 5s ease-in-out infinite alternate; /* Sway animation with a duration of 5s, ease-in-out timing function, and infinite alternate repeat mode */
+  animation: swayAnimation 2s ease-in-out infinite;
 }
 
 .extension.recommended-extension img {
@@ -94,8 +94,11 @@ a {
 }
 
 @keyframes swayAnimation {
-  to {
-    transform: rotate(5deg); /* Rotate the box to the right */
+  0%, 100% {
+    transform: rotate(-2deg); /* Initial sway to the left */
+  }
+  50% {
+    transform: rotate(2deg); /* Sway to the right */
   }
 }
 
