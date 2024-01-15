@@ -27,16 +27,16 @@
     <!-- Extensions will be dynamically added here -->
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Fetch JSON data from the website
-      fetch('https://rubyteam.tech/data/extensions.json')
-        .then(response => response.json())
-        .then(data => {
-          // Create extensions based on JSON data
-          createExtensions(data);
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  // Fetch JSON data from the website
+  fetch('https://rubyteam.tech/data/extensions.json')
+    .then(response => response.json())
+    .then(data => {
+      // Create extensions based on JSON data
+      createExtensions(data);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+});
 
 function createExtensions(data) {
   const container = document.getElementById('extensionContainer');
@@ -105,6 +105,7 @@ function downloadJS(url, filename) {
     })
     .catch(error => console.error('Error fetching JS code:', error));
 }
+
   </script>
 </body>
 </html>
