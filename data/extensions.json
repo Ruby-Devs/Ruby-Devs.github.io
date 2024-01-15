@@ -1,5 +1,11 @@
 [
   {
+    "name": "TurboGemini",
+    "description": "An usable AI extensions that use Google Gemini AI for response",
+    "url": "https://rubyteam.tech/cdn/extensions/geminiai.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.png"
+  },
+  {
     "name": "Speech2Text",
     "description": "Recognizes words or sentences said into the microphone. Experimental, can be innacurate sometimes.",
     "url": "https://rubyteam.tech/cdn/extensions/speechtotext.js",
