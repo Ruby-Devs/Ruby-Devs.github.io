@@ -27,18 +27,15 @@
     <!-- Extensions will be dynamically added here -->
   </div>
   <script>
-    window.addEventListener('load', function () {
-      // Wait for the entire document, including images and other assets, to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Fetch JSON data from the website
-        fetch('https://rubyteam.tech/data/extensions.json')
-          .then(response => response.json())
-          .then(data => {
-            // Create extensions based on JSON data
-            createExtensions(data);
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      });
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch JSON data from the website
+      fetch('https://rubyteam.tech/data/extensions.json')
+        .then(response => response.json())
+        .then(data => {
+          // Create extensions based on JSON data
+          createExtensions(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
     });
 
 function createExtensions(data) {
