@@ -76,8 +76,14 @@ a {
   }
 }
 
-.recommended-extension {
-  animation: glowAnimation 1s infinite alternate;
+.extension-box.recommended {
+  background-color: #ff0; /* Yellow background for recommended box */
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.5); /* Glow effect */
+  transform: rotate(-2deg); /* Initial slight left sway */
+}
+
+.extension-box.recommended:hover {
+  transform: rotate(2deg); /* Slight right sway on hover */
 }
 
 @keyframes glowAnimation {
