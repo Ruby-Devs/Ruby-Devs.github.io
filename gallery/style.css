@@ -87,8 +87,8 @@ a {
 }
 
 .extension.recommended-extension .download {
-  background-color: #ffd700; /* Golden background for the download button */
-  border: 2px solid #ffd700; /* Golden border for the download button */
+  background-color: #ffb300; /* Golden background for the download button */
+  border: 2px solid #ffb300; /* Golden border for the download button */
 }
 
 .extension:hover {
