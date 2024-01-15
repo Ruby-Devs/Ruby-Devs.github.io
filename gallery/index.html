@@ -49,11 +49,6 @@
         // Set inline style for animation delay based on index
         extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
 
-        if (extensionData.recommended && extensionData.recommended === true) {
-          // If recommended, add a special class for glow animation
-          extension.classList.add('recommended-extension');
-        }
-
         const img = document.createElement('img');
         img.src = extensionData.thumb;
         img.alt = extensionData.name;
@@ -67,14 +62,6 @@
         const p = document.createElement('p');
         p.textContent = extensionData.description;
 
-        if (extensionData.recommended && extensionData.recommended === true) {
-          // If recommended, add a special class for glow animation
-          extension.classList.add('recommended-extension');
-          const p2 = document.createElement('p');
-          p2.textContent = "[RECOMMENDED]";
-          p2.style.color = "red";
-        }
-
         const downloadBtn = document.createElement('button');
         downloadBtn.className = 'download';
         downloadBtn.textContent = 'Download';
@@ -87,6 +74,14 @@
         content.appendChild(downloadBtn);
         content.appendChild(strong);
         content.appendChild(p);
+
+        if (extensionData.recommended && extensionData.recommended === true) {
+          // If recommended, add a special class for glow animation
+          extension.classList.add('recommended-extension');
+          const p2 = document.createElement('p');
+          p2.textContent = "[RECOMMENDED]";
+          p2.style.color = "red";
+        }
 
         extension.appendChild(img);
         extension.appendChild(content);
