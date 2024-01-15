@@ -27,7 +27,7 @@
     <!-- Extensions will be dynamically added here -->
   </div>
   <script>
-    window.onload = function () {
+    window.addEventListener('load', function () {
       // Wait for the entire document, including images and other assets, to be fully loaded
       document.addEventListener("DOMContentLoaded", function () {
         // Fetch JSON data from the website
@@ -39,7 +39,7 @@
           })
           .catch(error => console.error('Error fetching data:', error));
       });
-    };
+    });
 
 function createExtensions(data) {
   const container = document.getElementById('extensionContainer');
