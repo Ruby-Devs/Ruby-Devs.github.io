@@ -20,6 +20,10 @@ body {
   align-items: center;
 }
 
+a {
+  color: #0099FF
+}
+
 .navbar-content img {
   width: 75px;
   height: auto;
