@@ -41,58 +41,60 @@
       });
     };
 
-    function createExtensions(data) {
-      const container = document.getElementById('extensionContainer');
+function createExtensions(data) {
+  const container = document.getElementById('extensionContainer');
 
-      // Loop through the JSON data and create extensions
-      data.forEach((extensionData, index) => {
-        const extension = document.createElement('div');
-        extension.className = 'extension';
+  // Loop through the JSON data and create extensions
+  data.forEach((extensionData, index) => {
+    const extension = document.createElement('div');
+    extension.className = 'extension';
 
-        // Set inline style for animation delay based on index
-        extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
+    // Set inline style for animation delay based on index
+    extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
 
-        const img = document.createElement('img');
-        img.src = extensionData.thumb;
-        img.alt = extensionData.name;
+    const img = document.createElement('img');
+    img.src = extensionData.thumb;
+    img.alt = extensionData.name;
 
-        const content = document.createElement('div');
-        content.className = 'content';
+    const content = document.createElement('div');
+    content.className = 'content';
 
-        const strong = document.createElement('strong');
-        strong.textContent = extensionData.name;
+    const strong = document.createElement('strong');
+    strong.textContent = extensionData.name;
 
-        const p = document.createElement('p');
-        p.textContent = extensionData.description;
+    const p = document.createElement('p');
+    p.textContent = extensionData.description;
 
-        const downloadBtn = document.createElement('button');
-        downloadBtn.className = 'download';
-        downloadBtn.textContent = 'Download';
-        downloadBtn.setAttribute('download-url', extensionData.url);
-        downloadBtn.addEventListener('click', function () {
-          downloadJS(extensionData.url, extensionData.name);
-        });
+    const downloadBtn = document.createElement('button');
+    downloadBtn.className = 'download';
+    downloadBtn.textContent = 'Download';
+    downloadBtn.setAttribute('download-url', extensionData.url);
+    downloadBtn.addEventListener('click', function () {
+      downloadJS(extensionData.url, extensionData.name);
+    });
 
-        // Append elements to the extension
-        content.appendChild(downloadBtn);
-        content.appendChild(strong);
-        content.appendChild(p);
+    // Append elements to the extension
+    content.appendChild(downloadBtn);
+    content.appendChild(strong);
+    content.appendChild(p);
 
-        if (extensionData.recommended && extensionData.recommended === true) {
-          // If recommended, add a special class for glow animation
-          extension.classList.add('recommended-extension');
-          const p2 = document.createElement('p');
-          p2.textContent = "[RECOMMENDED]";
-          p2.style.color = "red";
-        }
+    if (extensionData.recommended && extensionData.recommended === true) {
+      // If recommended, add a special class for glow animation
+      extension.classList.add('recommended-extension');
 
-        extension.appendChild(img);
-        extension.appendChild(content);
-
-        // Append the extension to the container
-        container.appendChild(extension);
-      });
+      const p2 = document.createElement('p');
+      p2.textContent = "[RECOMMENDED]";
+      p2.style.color = "red";
+      content.appendChild(p2);
     }
+
+    extension.appendChild(img);
+    extension.appendChild(content);
+
+    // Append the extension to the container
+    container.appendChild(extension);
+  });
+}
 
     function downloadJS(url, filename) {
       fetch(url)
