@@ -21,7 +21,8 @@
     "name": "Analytics",
     "description": "See Analytics about your project, using our sophisticated web tools.",
     "url": "https://rubyteam.tech/cdn/extensions/analytics.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp"
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp",
+    "recommended": true
   },
   {
     "name": "TurboWeather",
