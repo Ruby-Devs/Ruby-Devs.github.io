@@ -81,7 +81,7 @@ a {
   border: 2px solid #ffd700; /* Golden border */
   box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Golden glow effect */
   position: relative; 
-  animation: swayAnimation 2s ease-in-out infinite;
+  animation: bobAnimation 2s ease-in-out infinite;
 }
 
 .extension.recommended-extension img {
@@ -93,12 +93,12 @@ a {
   border: 2px solid #ffb300; /* Golden border for the download button */
 }
 
-@keyframes swayAnimation {
+@keyframes bobAnimation {
   0%, 100% {
-    transform: rotate(-2deg); /* Initial sway to the left */
+    transform: translateY(0); /* Initial and final position */
   }
   50% {
-    transform: rotate(2deg); /* Sway to the right */
+    transform: translateY(10px); /* Move the box down */
   }
 }
 
