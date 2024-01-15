@@ -3,7 +3,7 @@
     "name": "TurboGemini",
     "description": "An usable AI extensions that use Google Gemini AI for response",
     "url": "https://rubyteam.tech/cdn/extensions/geminiai.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.png"
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.webp"
   },
   {
     "name": "Speech2Text",
