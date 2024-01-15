@@ -49,6 +49,8 @@
       if (extensionData.recommended && extensionData.recommended === true) {
         // If recommended, add a special class for glow animation
         extension.classList.add('recommended-extension');
+        const rec = document.createElement('strong');
+        rec.textContent = "RECOMMENDED";
       }
 
       const img = document.createElement('img');
