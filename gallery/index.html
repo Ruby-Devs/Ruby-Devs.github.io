@@ -49,8 +49,6 @@
       if (extensionData.recommended && extensionData.recommended === true) {
         // If recommended, add a special class for glow animation
         extension.classList.add('recommended-extension');
-        const rec = document.createElement('strong');
-        rec.textContent = "RECOMMENDED";
       }
 
       const img = document.createElement('img');
@@ -65,6 +63,14 @@
 
       const p = document.createElement('p');
       p.textContent = extensionData.description;
+
+      if (extensionData.recommended && extensionData.recommended === true) {
+        // If recommended, add a special class for glow animation
+        extension.classList.add('recommended-extension');
+        const p2 = document.createElement('p');
+        p2.textContent = "[RECOMMENDED]";
+        p2.style.color = "red"
+      }
 
       const downloadBtn = document.createElement('button');
       downloadBtn.className = 'download';
