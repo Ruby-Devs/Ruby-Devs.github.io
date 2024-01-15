@@ -160,7 +160,7 @@
           content: message
         };
   
-        return fetch(webhookUrl, {
+        return Scratch.fetch(webhookUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -206,7 +206,7 @@
           username: name.name,
         };
   
-        return fetch(webhookUrl, {
+        return Scratch.fetch(webhookUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -227,7 +227,7 @@
       }
 
       send_json_block(args){
-        try {return fetch(args.WEBHOOK, {
+        try {return Scratch.fetch(args.WEBHOOK, {
               method: "POST",
               headers: {
                 'Content-type': 'application/json'
