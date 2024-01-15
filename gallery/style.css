@@ -97,9 +97,9 @@ a {
   position: absolute;
   top: 0;
   left: -100%; /* Start the shine effect outside the box */
-  width: 100%;
+  width: 200%; /* Double the width to ensure full coverage during animation */
   height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 50%, transparent 50.1%); /* White shine effect with 80% transparency */
+  background: linear-gradient(35deg, rgba(255, 255, 255, 0.8) 50%, transparent 50.1%); /* White shine effect with 80% transparency at a 35-degree angle */
   animation: sweepShine 1s linear infinite; /* Animation for the sweeping shine effect */
   animation-delay: 2s; /* 2-second delay before animation starts */
 }
