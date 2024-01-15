@@ -9,6 +9,10 @@ class GeminiExtension {
       id: 'gemini',
       name: 'Gemini AI',
       blocks: [
+	{
+          blockType: Scratch.BlockType.LABEL,
+          text: '[With Key] Normal'
+        },
         {
           opcode: 'setApiKey',
           blockType: Scratch.BlockType.COMMAND,
@@ -33,7 +37,7 @@ class GeminiExtension {
         },
         {
           blockType: Scratch.BlockType.LABEL,
-          text: 'Reverse Proxy'
+          text: '[No Key] Reverse Proxy'
         },
         {
            opcode: 'requestGeminiFromProxy',
