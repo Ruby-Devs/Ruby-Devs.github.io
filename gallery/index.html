@@ -68,8 +68,8 @@
         // If recommended, add a special class for glow animation
         extension.classList.add('recommended-extension');
         const p2 = document.createElement('p');
-        p2.textContent = "[RECOMMENDED]";
-        p2.style.color = "red"
+        p2.textContent = "RECOMMENDED";
+        p2.classList.add("recommended-text")
       }
 
       const downloadBtn = document.createElement('button');
@@ -84,6 +84,7 @@
       content.appendChild(downloadBtn);
       content.appendChild(strong);
       content.appendChild(p);
+      content.appendChild(p2);
 
       extension.appendChild(img);
       extension.appendChild(content);
