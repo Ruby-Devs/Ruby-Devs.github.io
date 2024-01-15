@@ -64,7 +64,6 @@ a {
   border: 2px white solid;
   cursor: help;
   opacity: 0; /* Initially set opacity to 0 */
-  animation: fadeIn 0.5s forwards; /* Animation duration and fill-mode */
 }
 
 /* Define the fade-in animation */
@@ -76,21 +75,6 @@ a {
     opacity: 1;
   }
 }
-
-/* Apply animation delay for each extension */
-.extension:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.extension:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.extension:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-/* Add more nth-child rules for additional extensions */
 
 .recommended-extension {
   animation: glowAnimation 1s infinite alternate;
