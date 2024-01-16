@@ -144,6 +144,8 @@ p {
   padding-block: 4px;
 }
 
+/* touch this god damn button one more time */
+
 button {
   border: none;
   color: #fff;
@@ -153,11 +155,7 @@ button {
   cursor: pointer;
   transition-duration: 0.3s;
   margin-block: 5px;
-  background-color: #db932e; /* Golden background for the download button */
-  border: 2px solid #ffb300; /* Golden border for the download button */
 }
-
-/* touch this god damn button one more time */
 
 .button {
   background-color: #ffb300; /* Golden background for the download button */
