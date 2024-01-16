@@ -97,7 +97,8 @@ a {
   background-color: #db932e; /* Golden background for the download button */
   border: 2px solid #ffb300; /* Golden border for the download button */
   padding: 5px;
-  border-radius: 3px;
+  border-radius: 6px;
+  color: white;
 }
 
 @keyframes bobAnimation {
