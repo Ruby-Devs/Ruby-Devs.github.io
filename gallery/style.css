@@ -157,10 +157,14 @@ button {
   border: 2px solid #ffb300; /* Golden border for the download button */
 }
 
+/* touch this god damn button one more time */
+
 .button {
-  background-color: #db932e; /* Golden background for the download button */
+  background-color: #ffb300; /* Golden background for the download button */
   border: 2px solid #ffb300; /* Golden border for the download button */
 }
+
+/* go ahead, it's right here*/
 
 .button:hover {
   opacity: 0.8;
