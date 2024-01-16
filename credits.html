@@ -34,12 +34,19 @@
       fetch('https://rubyteam.tech/data/credits.json')
         .then(response => response.json())
         .then(data => {
+          const categoryNames = {
+            extensiondevs: "Extension Developers",
+            websitedevs: "Website Developers",
+            thumbnailmaker: "Thumbnail Makers",
+            backenddevs: "Backend Developers"
+          };
+
           const creditsList = document.getElementById('creditsList');
 
           for (const category in data) {
             const categoryList = document.createElement('ul');
             const title = document.createElement('h3');
-            title.textContent = category;
+            title.textContent = categoryNames[category];
             creditsList.appendChild(title);
 
             data[category].forEach(name => {
