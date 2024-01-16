@@ -2,7 +2,7 @@
   "extensiondevs": ["MubiLop", "Gen1x"],
   "websitedevs": ["Gen1x", "DodecaTheDev", "MubiLop"],
   "thumbnailmaker": ["DodecaTheDev", "MubiLop"],
-  "backenddevs": ["MubiLop"]
+  "backenddevs": ["MubiLop"],
   "devs": [
     {
       "name": "MubiLop",
