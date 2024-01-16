@@ -99,6 +99,7 @@ a {
   padding: 5px;
   border-radius: 6px;
   color: white;
+  text-align: center;
 }
 
 @keyframes bobAnimation {
