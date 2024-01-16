@@ -168,7 +168,7 @@ button {
 
 .download {
   background-color: #db932e; /* Golden background for the download button */
-  border: 5px solid #c95838; /* Golden border for the download button */
+  border: 2px solid #ffb300; /* Golden border for the download button */
   border-radius: 15px; 
 }
 
