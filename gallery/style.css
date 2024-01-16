@@ -157,6 +157,11 @@ button {
   border: 2px solid #ffb300; /* Golden border for the download button */
 }
 
+.button {
+  background-color: #db932e; /* Golden background for the download button */
+  border: 2px solid #ffb300; /* Golden border for the download button */
+}
+
 .button:hover {
   opacity: 0.8;
 }
