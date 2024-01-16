@@ -94,8 +94,8 @@ a {
 }
 
 .recommended-text {
-  background-color: #db932e; /* Golden background for the download button */
-  border: 2px solid #ffb300; /* Golden border for the download button */
+  background-color: #db2e2e; /* Golden background for the download button */
+  border: 2px solid #e09d4a; /* Golden border for the download button */
   padding: 5px;
   border-radius: 6px;
   color: white;
