@@ -63,7 +63,7 @@ function createExtensions(data) {
     p.textContent = extensionData.description;
 
     const downloadBtn = document.createElement('button');
-    downloadBtn.className = 'btn btn-primary';
+    downloadBtn.className = 'download';
     downloadBtn.textContent = 'Download';
     downloadBtn.setAttribute('download-url', extensionData.url);
     downloadBtn.addEventListener('click', function () {
