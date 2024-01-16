@@ -79,7 +79,8 @@ function createExtensions(data) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
 
-      const p2 = document.createElement('p'); 
+      const p2 = document.createElement('p');
+      p2.classList.add("recommended-text")
       p2.textContent = "[RECOMMENDED]"
       content.appendChild(p2);
     }
