@@ -5,15 +5,15 @@
   "backenddevs": ["MubiLop"]
   "devs": [
     {
-      "name": "MubiLop"
+      "name": "MubiLop",
       "url": "https://rubyteam.tech/cdn/devimgs/mubilop.png"
     },
     {
-      "name": "DodecaTheDev"
+      "name": "DodecaTheDev",
       "url": "https://rubyteam.tech/cdn/devimgs/dodeca.png"
     },
     {
-      "name": "Gen1x"
+      "name": "Gen1x",
       "url": "https://rubyteam.tech/cdn/devimgs/gen1x.png"
     },
   ]
