@@ -164,17 +164,17 @@ button {
   border: 2px solid #ffb300; /* Golden border for the download button */
 }
 
-/* go ahead, it's right here*/
-
 .button:hover {
   opacity: 0.8;
 }
 
 .download {
-  background-color: #db932e; /* Golden background for the download button */
+  background-color: #ffb300; /* Golden background for the download button */
   border: 2px solid #ffb300; /* Golden border for the download button */
   border-radius: 15px; 
 }
+
+/* go ahead, it's right here*/
 
 @media only screen and (max-width: 768px) {
   .container {
