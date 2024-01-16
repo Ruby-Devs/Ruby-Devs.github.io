@@ -40,24 +40,25 @@
             thumbnailmaker: "Thumbnail Makers",
             backenddevs: "Backend Developers"
           };
-
+  
           const creditsList = document.getElementById('creditsList');
-
+  
           for (const category in data) {
             const categoryList = document.createElement('ul');
             const title = document.createElement('h3');
             title.textContent = categoryNames[category];
             creditsList.appendChild(title);
-
+  
             data[category].forEach(name => {
               const listItem = document.createElement('li');
               const dev = data.devs.find(d => d.name === name);
               if (dev) {
-                listItem.innerHTML = `<img src="${dev.url}" alt="${name}" height="50" width="50"> <a href="${dev.url}" target="_blank">${name}</a>`;
+                // Apply the 'rounded-image' class to the image
+                listItem.innerHTML = `<div class="rounded-image"><img src="${dev.url}" alt="${name}" height="50" width="50"></div> <a href="${dev.url}" target="_blank">${name}</a>`;
                 categoryList.appendChild(listItem);
               }
             });
-
+  
             creditsList.appendChild(categoryList);
           }
         })
