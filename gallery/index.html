@@ -72,10 +72,7 @@ function createExtensions(data) {
 
     // Append elements to the extension
     content.appendChild(downloadBtn);
-    content.appendChild(strong);
-    content.appendChild(p);
-
-    if (extensionData.recommended && extensionData.recommended === true) {
+        if (extensionData.recommended && extensionData.recommended === true) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
 
@@ -84,6 +81,8 @@ function createExtensions(data) {
       p2.textContent = "[RECOMMENDED]"
       content.appendChild(p2);
     }
+    content.appendChild(strong);
+    content.appendChild(p);
 
     extension.appendChild(img);
     extension.appendChild(content);
