@@ -1,0 +1,20 @@
+{
+  "extensiondevs": ["MubiLop", "Gen1x"],
+  "websitedevs": ["Gen1x", "DodecaTheDev", "MubiLop"],
+  "thumbnailmaker": ["DodecaTheDev", "MubiLop"],
+  "backenddevs": ["MubiLop"]
+  "devs": [
+    {
+      "name": "MubiLop"
+      "url": "https://rubyteam.tech/cdn/devimgs/mubilop.png"
+    },
+    {
+      "name": "DodecaTheDev"
+      "url": "https://rubyteam.tech/cdn/devimgs/dodeca.png"
+    },
+    {
+      "name": "Gen1x"
+      "url": "https://rubyteam.tech/cdn/devimgs/gen1x.png"
+    },
+  ]
+}
