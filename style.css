@@ -180,8 +180,3 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 10px; /* You can adjust the border-radius as needed */
   overflow: hidden;
 }
-
-/* Add this to center the text vertically with the image */
-.rounded-image img {
-  vertical-align: middle;
-}
