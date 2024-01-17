@@ -15,6 +15,10 @@ body {
     margin-top: -7px; /* Adjust margin as needed */
 }
 
+.black-text {
+    color: black;
+}
+
 header {
   background-color: #333;
   padding: 1em;
