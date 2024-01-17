@@ -83,6 +83,17 @@ function createExtensions(data) {
       newBadge.innerHTML = '<span>NEW!</span>';
       extension.appendChild(newBadge);
     }
+    if (extensionData.new && extensionData.new === true) {
+        const newBadgeContainer = document.createElement('div');
+        newBadgeContainer.className = 'new-badge-container';
+
+        const newBadge = document.createElement('div');
+        newBadge.className = 'new-badge';
+        newBadge.textContent = 'NEW!';
+  
+        newBadgeContainer.appendChild(newBadge);
+        extension.appendChild(newBadgeContainer);
+    }
     content.appendChild(strong);
     content.appendChild(p);
 
