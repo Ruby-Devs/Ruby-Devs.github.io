@@ -47,7 +47,7 @@ class GofileUploader {
   }
 
   uploadFile(args) {
-    const { data, filename, server } = args;
+    const { data, filename } = args;
     const formData = new FormData();
     const blob = new Blob([data], { type: 'text/plain' });
     formData.append('file', blob, filename);
