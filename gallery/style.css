@@ -72,7 +72,6 @@ a {
   width: calc(100% - 20px);
   max-width: 300px;
   border: 2px white solid;
-  cursor: help;
   opacity: 0; /* Initially set opacity to 0 */
 }
 
