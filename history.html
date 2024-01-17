@@ -175,8 +175,10 @@ function gfg() {
         } 
         const year = document.createElement("h3"); 
         year.innerText = e.year; 
+        year.classList.add("black-text"); 
         const eventt = document.createElement("p"); 
-        eventt.innerText = e.eventt; 
+        eventt.innerText = e.eventt;
+        eventt.classList.add("black-text"); 
         const item = document.createElement("div"); 
         item.appendChild(year); 
         item.appendChild(eventt); 
