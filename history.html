@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Ruby Devs - Main" />
+  <meta property="og:description" content="Welcome to our website! We make wonderful extensions that work on both PenguinMod and TurboWarp." />
+  <title>Ruby Devs - PenguinMod and TurboWarp Extensions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">  
+  <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <style>
+    /* Styling universal selector */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+  
+/* Style body element */
+body { 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    text-align: center; 
+    justify-content: center; 
+    background: hsl(113, 19%, 18%); 
+    font-family: "Poppins", sans-serif; 
+} 
+  
+/* Styling card container */
+.card { 
+    max-width: 20rem; 
+    background: #e5e9f3; 
+    margin: 0 1rem; 
+    padding: 1rem; 
+    box-shadow: 0 0 5px rgba(191, 189, 189, 0.2); 
+    width: 95%; 
+    border-radius: 0.5rem; 
+    margin: 2%; 
+    margin-bottom: 10%; 
+} 
+  
+.timeline { 
+    position: relative; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+} 
+  
+  
+.timeline::after { 
+    content: ""; 
+    position: absolute; 
+    width: 6px; 
+    background-color: white; 
+    top: 28px; 
+    bottom: 75px; 
+    left: 50%; 
+    margin-left: -3px; 
+} 
+  
+ul { 
+    list-style: none; 
+} 
+  
+.right { 
+    text-align: left; 
+    position: relative; 
+    right: -185px; 
+    list-style: none; 
+} 
+  
+.left { 
+    text-align: right; 
+    position: relative; 
+    left: -185px; 
+    list-style: none; 
+} 
+  
+.dotRight::after { 
+    content: ""; 
+    position: absolute; 
+    width: 22px; 
+    height: 22px; 
+    left: -40px; 
+    background-color: white; 
+    border: 4px dashed #559cff; 
+    top: 20px; 
+    border-radius: 50%; 
+    z-index: 1; 
+} 
+  
+.dotLeft::after { 
+    content: ""; 
+    position: absolute; 
+    width: 22px; 
+    height: 22px; 
+    right: -40px; 
+    background-color: white; 
+    border: 4px dashed #559cff; 
+    top: 20px; 
+    border-radius: 50%; 
+    z-index: 1; 
+}
+  </style>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/65a4b7b10ff6374032c04900/1hk5mr4b8';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</head>
+<body class="bg-dark text-white">  
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img style="margin-left: 20px;" src="logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid"></a>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
+        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <center>
+        <h2>Our History</h2>
+        <ul class="timeline" id="menu"></ul> 
+    </center>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const timelineArray = [ 
+    { 
+        year: "1995", 
+        eventt:  
+"JavaScript Introduced by Brendan Eich at Netscape", 
+    }, 
+    { 
+        year: "1997", 
+        eventt:  
+"ECMAScript created to Standardize JavaScript", 
+    }, 
+    { 
+        year: "1999", 
+        eventt:  
+"ECMAScript3: Introduction of RegEx, try-catch", 
+    }, 
+    { 
+        year: "2009", 
+        eventt:  
+"ECMAScript5: strict mode, Object method", 
+    }, 
+    { 
+        year: "2015", 
+        eventt:  
+"ES6: introduced classes, Arraow functons, let/const variables ", 
+    }, 
+    { 
+        year: "2016 Onwards", 
+        eventt:  
+"introducing features like async/await, spread/rest operators etc.", 
+    }, 
+]; 
+  
+function gfg() { 
+    timelineArray.map((e, i) => { 
+        let clss = "right"; 
+        let dot = "dotRight"; 
+        if (i % 2 == 0) { 
+            clss = "left"; 
+            dot = "dotLeft"; 
+        } 
+        const year = document.createElement("h3"); 
+        year.innerText = e.year; 
+        const eventt = document.createElement("p"); 
+        eventt.innerText = e.eventt; 
+        const item = document.createElement("div"); 
+        item.appendChild(year); 
+        item.appendChild(eventt); 
+        item.classList.add("card"); 
+        const contain = document.createElement("div"); 
+        const li = document.createElement("li"); 
+        contain.classList.add(dot); 
+        contain.appendChild(item); 
+        li.appendChild(contain); 
+        li.classList.add(clss); 
+        document.getElementById("menu").appendChild(li); 
+    }); 
+} 
+gfg();
+  </script>
+</body>
+</html>
