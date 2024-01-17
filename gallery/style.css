@@ -168,3 +168,30 @@ button {
     border-radius: 0;
   }
 }
+
+.new-badge-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 10;
+}
+
+.new-badge {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid gold;
+  position: relative;
+}
+
+.new-badge-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(0%, 0%);
+  transition: transform 0.3s ease;
+}
