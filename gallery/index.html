@@ -77,6 +77,12 @@ function createExtensions(data) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
     }
+    if (extensionData.new && extensionData.new === true) {
+      const newBadge = document.createElement('div');
+      newBadge.className = 'new';
+      newBadge.innerHTML = '<span>NEW!</span>';
+      extension.appendChild(newBadge);
+    }
     content.appendChild(strong);
     content.appendChild(p);
 
