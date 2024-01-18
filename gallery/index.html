@@ -40,7 +40,6 @@
     });
 
     function createExtensions(data) {
-      var count = 0;
       const container = document.getElementById('extensionContainer');
 
       // Loop through the JSON data and create extensions
@@ -86,12 +85,6 @@
 
         // Append the extension to the container
         container.appendChild(extension);
-        if (count > 4) {
-          count = 0;
-          container.appendChild(document.createElement('br'));
-        } else {
-          count += 1;
-        }
       });
     }
 
