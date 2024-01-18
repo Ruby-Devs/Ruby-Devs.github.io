@@ -8,6 +8,28 @@
   <link rel="stylesheet" href="https://rubyteam.tech/gallery/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap">
   <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <style>
+    /* Add your additional styles here */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 20px;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .extension {
+      display: inline-block;
+      width: 100%;
+      max-width: 200px; /* Adjust as needed */
+      margin-bottom: 20px;
+    }
+
+    /* Add any other styles you need */
+  </style>
 </head>
 
 <body>
@@ -24,9 +46,11 @@
     <p style="font-size: 18px; color: white;">Don't know how to import an extension? Here's the <a href="/import_tut" target="_blank">tutorial</a>.</p>
     <p style="color: #808080;">Extensions that glow in <span style="color: yellow;">yellow</span> are featured.</p>
   </center>
-  <div class="container" id="extensionContainer">
-    <!-- Extensions will be dynamically added here -->
-  </div>
+  <table>
+    <tbody id="extensionContainer">
+      <!-- Extensions will be dynamically added here -->
+    </tbody>
+  </table>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Fetch JSON data from the website
@@ -41,23 +65,11 @@
 
     function createExtensions(data) {
       const container = document.getElementById('extensionContainer');
-      const extensionsPerRow = 5;
+      const tableRow = document.createElement('tr');
 
       // Loop through the JSON data and create extensions
       data.forEach((extensionData, index) => {
-        const rowNumber = Math.floor(index / extensionsPerRow);
-        
-        // Create a new row if necessary
-        if (index % extensionsPerRow === 0) {
-          const row = document.createElement('div');
-          row.className = 'extension-row';
-          container.appendChild(row);
-        }
-
-        // Get the current row
-        const currentRow = container.getElementsByClassName('extension-row')[rowNumber];
-
-        const extension = document.createElement('div');
+        const extension = document.createElement('td');
         extension.className = 'extension';
 
         // Set inline style for animation delay based on index
@@ -96,8 +108,15 @@
         extension.appendChild(img);
         extension.appendChild(content);
 
-        // Append the extension to the current row
-        currentRow.appendChild(extension);
+        // Append the extension to the table row
+        tableRow.appendChild(extension);
+
+        // Start a new row after every 5 extensions
+        if ((index + 1) % 5 === 0 || index === data.length - 1) {
+          container.appendChild(tableRow);
+          // Start a new table row
+          tableRow = document.createElement('tr');
+        }
       });
     }
 
