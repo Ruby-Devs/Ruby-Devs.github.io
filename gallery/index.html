@@ -41,9 +41,22 @@
 
     function createExtensions(data) {
       const container = document.getElementById('extensionContainer');
+      const extensionsPerRow = 5;
 
       // Loop through the JSON data and create extensions
       data.forEach((extensionData, index) => {
+        const rowNumber = Math.floor(index / extensionsPerRow);
+        
+        // Create a new row if necessary
+        if (index % extensionsPerRow === 0) {
+          const row = document.createElement('div');
+          row.className = 'extension-row';
+          container.appendChild(row);
+        }
+
+        // Get the current row
+        const currentRow = container.getElementsByClassName('extension-row')[rowNumber];
+
         const extension = document.createElement('div');
         extension.className = 'extension';
 
@@ -83,13 +96,8 @@
         extension.appendChild(img);
         extension.appendChild(content);
 
-        // Append the extension to the container
-        container.appendChild(extension);
-
-        // Add a new line after every 5 extensions
-        if ((index + 1) % 5 === 0) {
-          container.appendChild(document.createElement('br'));
-        }
+        // Append the extension to the current row
+        currentRow.appendChild(extension);
       });
     }
 
@@ -108,5 +116,4 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
