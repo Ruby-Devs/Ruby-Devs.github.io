@@ -46,6 +46,7 @@ a {
   padding: 15px;
   max-width: 100vw;
   margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* Define the fade-in animation */
