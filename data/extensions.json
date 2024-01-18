@@ -12,6 +12,13 @@
     "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.webp"
   },
   {
+    "name": "PenguinPedia",
+    "description": "Get a lot of data from Wikipedia, like definitions and images!",
+    "url": "https://rubyteam.tech/cdn/extensions/penguinpedia.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinpedia.webp",
+    "recommended": true
+  },
+  {
     "name": "Speech2Text",
     "description": "Recognizes words or sentences said into the microphone. Experimental, can be innacurate sometimes.",
     "url": "https://rubyteam.tech/cdn/extensions/speechtotext.js",
