@@ -60,7 +60,7 @@ a {
 
 .extension {
   background-color: #ffffff;
-  box-shadow: 0px 5px 15px rgba(.0, 0, 0, 0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   overflow: hidden;
   transition-duration: 0.3s;
@@ -117,7 +117,7 @@ strong {
 p {
   margin: 0;
   color: #666;
-  padding-block: 4px;
+  padding: 4px; /* Change padding-block to padding */
 }
 
 /* touch this god damn button one more time */
@@ -126,11 +126,11 @@ button {
   border: none;
   color: #fff;
   font-weight: bold;
-  padding-block: 10px;
+  padding: 10px; /* Change padding-block to padding */
   width: 100%;
   cursor: pointer;
   transition-duration: 0.3s;
-  margin-block: 5px;
+  margin: 5px; /* Change margin-block to margin */
 }
 
 .button {
