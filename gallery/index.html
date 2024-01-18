@@ -46,11 +46,9 @@
     <p style="font-size: 18px; color: white;">Don't know how to import an extension? Here's the <a href="/import_tut" target="_blank">tutorial</a>.</p>
     <p style="color: #808080;">Extensions that glow in <span style="color: yellow;">yellow</span> are featured.</p>
   </center>
-  <table>
-    <tbody id="extensionContainer">
-      <!-- Extensions will be dynamically added here -->
-    </tbody>
-  </table>
+  <div class="extension-container" id="extensionContainer">
+    <!-- Extensions will be dynamically added here -->
+  </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Fetch JSON data from the website
@@ -65,11 +63,10 @@
 
     function createExtensions(data) {
       const container = document.getElementById('extensionContainer');
-      const tableRow = document.createElement('tr');
 
       // Loop through the JSON data and create extensions
       data.forEach((extensionData, index) => {
-        const extension = document.createElement('td');
+        const extension = document.createElement('div');
         extension.className = 'extension';
 
         // Set inline style for animation delay based on index
@@ -108,15 +105,8 @@
         extension.appendChild(img);
         extension.appendChild(content);
 
-        // Append the extension to the table row
-        tableRow.appendChild(extension);
-
-        // Start a new row after every 5 extensions
-        if ((index + 1) % 5 === 0 || index === data.length - 1) {
-          container.appendChild(tableRow);
-          // Start a new table row
-          tableRow = document.createElement('tr');
-        }
+        // Append the extension to the container
+        container.appendChild(extension);
       });
     }
 
