@@ -85,6 +85,11 @@
 
         // Append the extension to the container
         container.appendChild(extension);
+
+        // Add a new line after every 5 extensions
+        if ((index + 1) % 5 === 0) {
+          container.appendChild(document.createElement('br'));
+        }
       });
     }
 
