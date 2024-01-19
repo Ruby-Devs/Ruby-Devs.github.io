@@ -78,15 +78,8 @@ a {
 }
 
 .extension.recommended-extension {
-  background-color: #ffd700; /* Golden background for recommended box */
-  border: 2px solid #ffd700; /* Golden border */
-  box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Golden glow effect */
-  position: relative;
-  color: white;
-}
-
-.extension.recommended-extension img {
-  border-bottom: solid 5px #ffd700; /* Golden border at the bottom of the image */
+  box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5);
+  box-shadow: inset 0px 5px 15px rgba(255, 215, 0, 0.5); 
 }
 
 .extension:hover {
