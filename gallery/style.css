@@ -78,7 +78,7 @@ a {
 }
 
 .extension.recommended-extension {
-  box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5), inset 0px 5px 15px rgba(255, 215, 0, 0.5);
+  box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.8), inset 0px 0px 25px rgba(255, 215, 0, 0.6);
 }
 
 .extension:hover {
