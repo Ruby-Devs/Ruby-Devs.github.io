@@ -41,7 +41,7 @@ a {
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   padding: 15px;
   max-width: 100vw;
@@ -73,6 +73,8 @@ a {
   max-width: 300px;
   border: 2px white solid;
   opacity: 0; /* Initially set opacity to 0 */
+  flex-basis: calc(20% - 20px); /* Adjust the width as needed */
+  margin-bottom: 20px;
 }
 
 .extension.recommended-extension {
@@ -160,6 +162,7 @@ button {
   .extension {
     width: 100%;
     max-width: none;
+    flex-basis: calc(50% - 20px);
   }
 
   .navbar {
