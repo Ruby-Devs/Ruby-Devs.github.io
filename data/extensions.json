@@ -1,10 +1,17 @@
 [
   {
+    "name": "PenguinGPT",
+    "description": "Using WorkingTurboGPT source code we now have made PenguinGPT! New features will come like DALL-E, all for free!",
+    "url": "https://rubyteam.tech/cdn/extensions/penguingpt.js",
+    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguingpt.png",
+    "recommended": true
+  },
+  {
     "name": "GoFile",
     "description": "Upload your files, with no limits using gofile.io service, updates may come with better features",
     "url": "https://rubyteam.tech/cdn/extensions/gofile.js",
     "thumb": "https://rubyteam.tech/cdn/thumbnails/gofile.png",
-    "recommended": true
+    "recommended": false
   },
   {
     "name": "TurboGemini",
