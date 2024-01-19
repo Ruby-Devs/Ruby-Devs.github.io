@@ -64,7 +64,7 @@ class GofileUploader {
             .then(response => response.json())
             .then(data => {
               if (data.status === 'ok') {
-                const directDownloadLink = `${data.data.downloadPage}`;
+                const directDownloadLink = `https://${bestServer}.gofile.io/download/${data.data.parentFolder}/${filename}`;
                 resolve(directDownloadLink);
               } else {
                 resolve(null);
