@@ -29,31 +29,46 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Extract the 'name' parameter from the URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const extensionName = urlParams.get('name');
+    // Extract the 'name' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const extensionName = urlParams.get('name');
 
-      // Check if the 'name' parameter is present
-      if (extensionName) {
-        // Fetch JSON data from the website
-        fetch('https://rubyteam.tech/data/extensions.json')
-          .then(response => response.json())
-          .then(data => {
-            // Find the extension with the specified name
-            const selectedExtension = data.find(extension => extension.name === extensionName);
+    // Check if the 'name' parameter is present
+    if (extensionName) {
+      // Fetch JSON data from the website
+      fetch('https://rubyteam.tech/data/extensions.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Find the extension with the specified name
+          const selectedExtension = data.find(extension => extension.name === extensionName);
 
-            // If found, create and display the extension
-            if (selectedExtension) {
-              createExtensions([selectedExtension]);
-            } else {
-              console.error('Extension not found:', extensionName);
-            }
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      } else {
-        console.error('Missing "name" parameter in the URL');
-      }
-    });
+          // If found, create and display the extension
+          if (selectedExtension) {
+            createExtensions([selectedExtension]);
+          } else {
+            createErrorElement(`Extension not found: ${extensionName}`);
+          }
+        })
+        .catch(error => {
+          createErrorElement(`Error fetching data: ${error.message}`);
+        });
+    } else {
+      createErrorElement('Missing "name" parameter in the URL');
+    }
+  });
+
+  function createErrorElement(errorMessage) {
+    const container = document.getElementById('extensionContainer');
+    const errorElement = document.createElement('p');
+    errorElement.style.color = 'red';
+    errorElement.textContent = errorMessage;
+    container.appendChild(errorElement);
+  }
 
     function createExtensions(data) {
       const container = document.getElementById('extensionContainer');
