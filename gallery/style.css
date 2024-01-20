@@ -56,6 +56,11 @@ header {
   border-bottom-right-radius: 10px; /* Adjust the value as needed */
 }
 
+#logo {
+    margin-right: 10px; /* Adjust margin as needed */
+    margin-top: -7px; /* Adjust margin as needed */
+}
+
 .extension {
   background-color: #181a1b;
   box-shadow: 0px 5px 15px rgba(.0, 0, 0, 0.1);
