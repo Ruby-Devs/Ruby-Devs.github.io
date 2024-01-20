@@ -48,17 +48,14 @@ a {
   margin: 0 auto;
 }
 
-header {
-  background-color: #333;
-  padding: 1em;
-  display: flex;
-  border-bottom-left-radius: 10px; /* Adjust the value as needed */
-  border-bottom-right-radius: 10px; /* Adjust the value as needed */
-}
-
-#logo {
-    margin-right: 10px; /* Adjust margin as needed */
-    margin-top: -7px; /* Adjust margin as needed */
+/* Define the fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .extension {
@@ -75,6 +72,7 @@ header {
   width: calc(100% - 20px);
   max-width: 300px;
   border: 2px white solid;
+  opacity: 0; /* Initially set opacity to 0 */
   flex-basis: calc(20% - 20px); /* Adjust the width as needed */
   margin-bottom: 20px;
 }
