@@ -8,6 +8,29 @@
   <link rel="stylesheet" href="https://rubyteam.tech/gallery/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap">
   <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <style>
+    /* Add this CSS for the search container */
+    .search-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #extensionSearch {
+      padding: 5px;
+    }
+
+    .search-container button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background: #45a049;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,83 +47,106 @@
     <p style="font-size: 18px; color: white;">Don't know how to import an extension? Here's the <a href="/import_tut" target="_blank">tutorial</a>.</p>
     <p style="color: #808080;">Extensions that glow in <span style="color: yellow;">yellow</span> are featured.</p>
   </center>
+  <!-- Add this search container above the extension container -->
+  <div class="search-container">
+    <input type="text" id="extensionSearch" placeholder="Search...">
+    <button onclick="searchExtensions()">Search</button>
+  </div>
   <div class="container" id="extensionContainer">
     <!-- Extensions will be dynamically added here -->
   </div>
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Fetch JSON data from the website
-  fetch('https://rubyteam.tech/data/extensions.json')
-    .then(response => response.json())
-    .then(data => {
-      // Create extensions based on JSON data
-      createExtensions(data);
-    })
-    .catch(error => console.error('Error fetching data:', error));
-});
-
-function createExtensions(data) {
-  const container = document.getElementById('extensionContainer');
-
-  // Loop through the JSON data and create extensions
-  data.forEach((extensionData, index) => {
-    const extension = document.createElement('div');
-    extension.className = 'extension';
-
-    // Set inline style for animation delay based on index
-    extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
-
-    const img = document.createElement('img');
-    img.src = extensionData.thumb;
-    img.alt = extensionData.name;
-
-    const content = document.createElement('div');
-    content.className = 'content';
-
-    const strong = document.createElement('strong');
-    strong.textContent = extensionData.name;
-
-    const p = document.createElement('p');
-    p.textContent = extensionData.description;
-
-    const downloadBtn = document.createElement('button');
-    downloadBtn.className = 'download';
-    downloadBtn.textContent = 'Download';
-    downloadBtn.setAttribute('download-url', extensionData.url);
-    downloadBtn.addEventListener('click', function () {
-      downloadJS(extensionData.url, extensionData.name);
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch JSON data from the website
+      fetch('https://rubyteam.tech/data/extensions.json')
+        .then(response => response.json())
+        .then(data => {
+          // Create extensions based on JSON data
+          createExtensions(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
     });
 
-    // Append elements to the extension
-    content.appendChild(downloadBtn);
-    if (extensionData.recommended && extensionData.recommended === true) {
-      // If recommended, add a special class for glow animation
-      extension.classList.add('recommended-extension');
+    function createExtensions(data) {
+      const container = document.getElementById('extensionContainer');
+
+      // Loop through the JSON data and create extensions
+      data.forEach((extensionData, index) => {
+        const extension = document.createElement('div');
+        extension.className = 'extension';
+
+        // Set inline style for animation delay based on index
+        extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
+
+        const img = document.createElement('img');
+        img.src = extensionData.thumb;
+        img.alt = extensionData.name;
+
+        const content = document.createElement('div');
+        content.className = 'content';
+
+        const strong = document.createElement('strong');
+        strong.textContent = extensionData.name;
+
+        const p = document.createElement('p');
+        p.textContent = extensionData.description;
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'download';
+        downloadBtn.textContent = 'Download';
+        downloadBtn.setAttribute('download-url', extensionData.url);
+        downloadBtn.addEventListener('click', function () {
+          downloadJS(extensionData.url, extensionData.name);
+        });
+
+        // Append elements to the extension
+        content.appendChild(downloadBtn);
+        if (extensionData.recommended && extensionData.recommended === true) {
+          // If recommended, add a special class for glow animation
+          extension.classList.add('recommended-extension');
+        }
+        content.appendChild(strong);
+        content.appendChild(p);
+
+        extension.appendChild(img);
+        extension.appendChild(content);
+
+        // Append the extension to the container
+        container.appendChild(extension);
+      });
     }
-    content.appendChild(strong);
-    content.appendChild(p);
 
-    extension.appendChild(img);
-    extension.appendChild(content);
+    function downloadJS(url, filename) {
+      fetch(url)
+        .then(response => response.text())
+        .then(jsCode => {
+          const blob = new Blob([jsCode], { type: 'application/javascript' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = `${filename}.js`;
+          link.click();
+        })
+        .catch(error => console.error('Error fetching JS code:', error));
+    }
 
-    // Append the extension to the container
-    container.appendChild(extension);
-  });
-}
+    // Add this function for searching extensions
+    function searchExtensions() {
+      const input = document.getElementById('extensionSearch').value.toLowerCase();
+      const extensions = document.getElementsByClassName('extension');
 
-function downloadJS(url, filename) {
-  fetch(url)
-    .then(response => response.text())
-    .then(jsCode => {
-      const blob = new Blob([jsCode], { type: 'application/javascript' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `${filename}.js`;
-      link.click();
-    })
-    .catch(error => console.error('Error fetching JS code:', error));
-}
+      for (const extension of extensions) {
+        const extensionName = extension.querySelector('strong').textContent.toLowerCase();
+        const extensionDescription = extension.querySelector('p').textContent.toLowerCase();
+
+        if (extensionName.includes(input) || extensionDescription.includes(input)) {
+          extension.style.display = 'block';
+        } else {
+          extension.style.display = 'none';
+        }
+      }
+    }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
