@@ -40,18 +40,14 @@
 </head>
 
 <body>
-  <header class="container py-4">
-    <div class="row">
-      <div class="col-4">
-        <a href="/"><img style="margin-left: 20px;" src="/logo.svg" alt="Ruby Devs Logo" height="80" class="img-fluid"></a>
-      </div>
-      <div class="col-8">
-        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
-        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
-      </div>
+  <div class="navbar">
+    <div class="navbar-content">
+      <a href="/"><img src="https://rubyteam.tech/gallery/img/ruby.png" style="border-bottom: none;" alt="rubylogo"></a>
+      &nbsp;
+      <p>Ruby Extension Gallery</p>
     </div>
-  </header>
-
+  </div>
+  <br>
   <center>
     <p style="font-size: 18px; color: white;">&lt; New Style by <a href="https://www.youtube.com/channel/UCd4iCTGKxD-05nzx4oibveg" target="_blank" style="color: #0099FF">Azuritii</a> &gt;</p>
     <p style="font-size: 18px; color: white;">Don't know how to import an extension? Here's the <a href="/import_tut" target="_blank">tutorial</a>.</p>
@@ -60,6 +56,7 @@
   <!-- Add this search container above the extension container -->
   <div class="search-container">
     <input type="text" id="extensionSearch" placeholder="Search...">
+    <button onclick="searchExtensions()">Search</button>
   </div>
   <div class="container" id="extensionContainer">
     <!-- Extensions will be dynamically added here -->
