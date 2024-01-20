@@ -48,7 +48,13 @@ a {
   margin: 0 auto;
 }
 
-
+header {
+  background-color: #333;
+  padding: 1em;
+  display: flex;
+  border-bottom-left-radius: 10px; /* Adjust the value as needed */
+  border-bottom-right-radius: 10px; /* Adjust the value as needed */
+}
 
 .extension {
   background-color: #181a1b;
