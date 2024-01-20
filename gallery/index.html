@@ -16,15 +16,21 @@
     }
 
     #extensionSearch {
-      padding: 5px;
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
     }
 
     .search-container button {
-      padding: 5px 10px;
+      padding: 10px;
       background-color: #4CAF50;
       color: white;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
     }
 
     .search-container button:hover {
@@ -128,6 +134,9 @@
         })
         .catch(error => console.error('Error fetching JS code:', error));
     }
+
+    // Update the search as the user types
+    document.getElementById('extensionSearch').addEventListener('input', searchExtensions);
 
     // Add this function for searching extensions
     function searchExtensions() {
