@@ -48,15 +48,7 @@ a {
   margin: 0 auto;
 }
 
-/* Define the fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 
 .extension {
   background-color: #181a1b;
@@ -72,7 +64,6 @@ a {
   width: calc(100% - 20px);
   max-width: 300px;
   border: 2px white solid;
-  opacity: 0; /* Initially set opacity to 0 */
   flex-basis: calc(20% - 20px); /* Adjust the width as needed */
   margin-bottom: 20px;
 }
