@@ -1,5 +1,12 @@
 [
   {
+    "name": "1mbShortener",
+    "description": "Using 1mb Api you can now share links without it being long!",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/1mb.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/1mb.svg",
+    "recommended": true
+  },
+  {
     "name": "PenguinGPT",
     "description": "Using WorkingTurboGPT source code we now have made PenguinGPT! New features will come like DALL-E, all for free!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguingpt.js",
