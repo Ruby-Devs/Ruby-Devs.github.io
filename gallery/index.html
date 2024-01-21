@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Ruby Extension Gallery</title>
-  <link rel="stylesheet" href="https://rubyteam.tech/gallery/style.css">
+  <link rel="stylesheet" href="https://ruby-devs.vercel.app/gallery/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap">
-  <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <link rel="icon" type="image/x-icon" href="https://ruby-devs.vercel.app/gallery/img/ruby.png">
   <style>
     /* Add this CSS for the search container */
     .search-container {
@@ -42,7 +42,7 @@
 <body>
   <div class="navbar">
     <div class="navbar-content">
-      <a href="/"><img src="https://rubyteam.tech/gallery/img/ruby.png" style="border-bottom: none;" alt="rubylogo"></a>
+      <a href="/"><img src="https://ruby-devs.vercel.app/gallery/img/ruby.png" style="border-bottom: none;" alt="rubylogo"></a>
       &nbsp;
       <p>Ruby Extension Gallery</p>
     </div>
@@ -64,7 +64,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Fetch JSON data from the website
-      fetch('https://rubyteam.tech/data/extensions.json')
+      fetch('https://ruby-devs.vercel.app/data/extensions.json')
         .then(response => response.json())
         .then(data => {
           // Create extensions based on JSON data
