@@ -36,7 +36,7 @@
     // Check if the 'name' parameter is present
     if (extensionName) {
       // Fetch JSON data from the website
-      fetch('https://rubyteam.tech/data/extensions.json')
+      fetch('https://ruby-devs.vercel.app/data/extensions.json')
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
