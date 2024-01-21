@@ -2,53 +2,53 @@
   {
     "name": "PenguinGPT",
     "description": "Using WorkingTurboGPT source code we now have made PenguinGPT! New features will come like DALL-E, all for free!",
-    "url": "https://rubyteam.tech/cdn/extensions/penguingpt.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguingpt.png",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/penguingpt.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguingpt.png",
     "recommended": true
   },
   {
     "name": "GoFile",
     "description": "Upload your files, with no limits using gofile.io service, updates may come with better features",
-    "url": "https://rubyteam.tech/cdn/extensions/gofile.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/gofile.png",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/gofile.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/gofile.png",
     "recommended": false
   },
   {
     "name": "TurboGemini",
     "description": "Use Google's brand-new Gemini AI technology (similar to ChatGPT) inside your projects.",
-    "url": "https://rubyteam.tech/cdn/extensions/geminiai.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/turbogemini.webp"
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/geminiai.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/turbogemini.webp"
   },
   {
     "name": "PenguinPedia",
     "description": "Get a lot of data from Wikipedia, like definitions and images!",
-    "url": "https://rubyteam.tech/cdn/extensions/penguinpedia.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinpedia.webp",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinpedia.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguinpedia.webp",
     "recommended": true
   },
   {
     "name": "Speech2Text",
     "description": "Recognizes words or sentences said into the microphone. Experimental, can be innacurate sometimes.",
-    "url": "https://rubyteam.tech/cdn/extensions/speechtotext.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/speechtotext.png"
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/speechtotext.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/speechtotext.png"
   },
   {
     "name": "PenguinHook",
     "description": "Send Webhook requests, that can be Discord or any type of webhook.",
-    "url": "https://rubyteam.tech/cdn/extensions/penguinhook.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/penguinhook.png"
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinhook.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguinhook.png"
   },
   {
     "name": "Analytics",
     "description": "See Analytics about your project, using our sophisticated web tools.",
-    "url": "https://rubyteam.tech/cdn/extensions/analytics.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/analytics.webp",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/analytics.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/analytics.webp",
     "recommended": true
   },
   {
     "name": "TurboWeather",
     "description": "Show weather and location data for any place in our world. Data that could be used for doxxing is deleted from results.",
-    "url": "https://rubyteam.tech/cdn/extensions/turboweather.js",
-    "thumb": "https://rubyteam.tech/cdn/thumbnails/turboweather.webp"
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/turboweather.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/turboweather.webp"
   }
 ]
