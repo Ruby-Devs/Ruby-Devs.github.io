@@ -4,5 +4,5 @@ Its domain is hosted by MubiLop, one of the members.
 
 Go to our website for more info about us!
 
-If our main website has no SSL certificate (like now), try https://ruby-devs.vercel.app/.
-If not, try https://rubyteam.tech/.
+If our main domain doesnt work try
+https://rubydevs.tech/
