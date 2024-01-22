@@ -12,5 +12,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "Hi, welcome to your first viewed Ruby Devs Repo!"
+        issue-message: "Hi, welcome to your first viewed Ruby Devs Repo on this tab!"
         pr-message: "Wow! Thank you for having a pull! This will be accepted soon."
