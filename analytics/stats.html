@@ -75,14 +75,6 @@
       $("#form").on("submit", async function (e) {
         e.preventDefault();
         $('#loading-box').show();
-
-        // Validate hCaptcha response
-        var hcaptchaResponse = $(this).find('[data-hcaptcha-response]').val();
-        if (!hcaptchaResponse) {
-          alert("Please complete the hCaptcha verification.");
-          $('#loading-box').hide();
-          return;
-        }
   
         var id = $('#inputField').val();
         let response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_clickCanvas");
