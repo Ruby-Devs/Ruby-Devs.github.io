@@ -68,7 +68,7 @@ button {
   transition-duration: 150ms;
 }
 
-button:disabled {
+.btn:disabled {
   background: transparent;
   font-family: 'Roboto', sans-serif;
   color: #d93434;
