@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/style.css">
   <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
   <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="bg-dark text-white">
 
@@ -24,10 +25,13 @@
 
   <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
     <h2>See a project's statistics</h2>
-    <form id="form" class="text-center">
+    <form id="form" class="text-center" data-hcaptcha-response>
       <label for="inputField">Enter Ruby ID</label><br>
       <input type="text" id="inputField" name="inputField" required>
       <br><br>
+      <!-- Add the hCaptcha widget here -->
+      <div class="h-captcha" data-sitekey="15b122e2-ff83-422d-bce7-66d6e85134ca"></div>
+      <br>
       <button type="submit" class="btn btn-primary">See stats</button>
     </form>
   </section>
@@ -67,6 +71,14 @@
       $("#form").on("submit", async function (e) {
         e.preventDefault();
         $('#loading-box').show();
+
+        // Validate hCaptcha response
+        var hcaptchaResponse = $(this).find('[data-hcaptcha-response]').val();
+        if (!hcaptchaResponse) {
+          alert("Please complete the hCaptcha verification.");
+          $('#loading-box').hide();
+          return;
+        }
   
         var id = $('#inputField').val();
         let response = await fetch('https://api.rubyteam.tech/counter/get?keyname=' + id + "_clickCanvas");
