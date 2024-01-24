@@ -68,6 +68,20 @@ button {
   transition-duration: 150ms;
 }
 
+button:disabled {
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  color: #d93434;
+  font-size: 17px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-radius: 15px;
+  border: solid #706b6b 3px;
+  cursor: pointer;
+  transition-duration: 150ms;
+  cursor: not-allowed;
+}
+
 button:hover {
   background: #d93434;
   color: white;
