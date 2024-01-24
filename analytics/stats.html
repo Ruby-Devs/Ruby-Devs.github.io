@@ -30,9 +30,9 @@
       <input type="text" id="inputField" name="inputField" required>
       <br><br>
       <!-- Add the hCaptcha widget here -->
-      <div class="h-captcha" data-sitekey="15b122e2-ff83-422d-bce7-66d6e85134ca"></div>
+      <div class="h-captcha" data-sitekey="15b122e2-ff83-422d-bce7-66d6e85134ca" data-callback="captchaDone"></div>
       <br>
-      <button type="submit" class="btn btn-primary">See stats</button>
+      <button type="submit" class="btn btn-primary" disabled id="submit">See stats</button>
     </form>
   </section>
 
@@ -50,6 +50,10 @@
   </section>
 
   <script>
+    function captchaDone() {
+     $('#submit').prop('disabled', false);
+    }
+    
     function success(projectRuns, projectStops, clicks, keyPresses) {
       const projectRunsWeight = 0.4;
       const projectStopsWeight = 0.2;
