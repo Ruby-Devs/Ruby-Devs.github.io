@@ -1,5 +1,12 @@
 [
   {
+    "name": "quran",
+    "description": "use the quran in your projects! must use for islamic projects",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/quran-ext.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/quran-ext.js",
+    "recommended": false
+  },
+  {
     "name": "1mbShortener",
     "description": "Using 1mb Api you can now share links without it being long!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/1mb.js",
