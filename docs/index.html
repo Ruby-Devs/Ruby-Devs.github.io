@@ -47,8 +47,11 @@
                 const converter = new showdown.Converter();
                 const htmlContent = converter.makeHtml(markdownText);
 
-                // Display the HTML content in the container
-                document.getElementById('markdown-container').innerHTML = htmlContent;
+                // Replace new lines with <br> tags
+                const formattedHTML = htmlContent.replace(/\n/g, '<br>');
+
+                // Display the formatted HTML content in the container
+                document.getElementById('markdown-container').innerHTML = formattedHTML;
             })
             .catch(error => {
                 console.error(error);
