@@ -11,8 +11,8 @@ These are:
 - total project stops (stop sign clicks)
 - total clicks inside project
 - total keys pressed inside project
-Every stat mentioned can be monitored through our website.
 
+Every stat mentioned can be monitored through our website.
 # How do I even use it though?
 You need to go [make a new Ruby ID in this page](https://rubyteam.tech/analytics/newid).
 After making an ID, copy it to your clipboard, and insert it into the "set analytics ID to (ruby id)" block.
