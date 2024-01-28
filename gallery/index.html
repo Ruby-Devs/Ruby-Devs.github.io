@@ -111,6 +111,9 @@
           // If recommended, add a special class for glow animation
           extension.classList.add('recommended-extension');
         }
+        
+        content.appendChild(strong);
+        content.appendChild(p);
 
         if (extensionData.docs && extensionData.docs === true) {
           const a = document.createElement('a');
@@ -119,9 +122,6 @@
           a.target = "_blank";
           content.appendChild(a);
         }
-        
-        content.appendChild(strong);
-        content.appendChild(p);
 
         extension.appendChild(img);
         extension.appendChild(content);
