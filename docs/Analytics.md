@@ -14,7 +14,7 @@ These are:
 
 Every stat mentioned can be monitored through our website.
 # How do I even use it though?
-You need to go [make a new Ruby ID in this page](https://rubyteam.tech/analytics/newid).
+You need to [go make a new Ruby ID in this page](https://rubyteam.tech/analytics/newid).
 After making an ID, copy it to your clipboard, and insert it into the "set analytics ID to (ruby id)" block.
 
 After running that block, you can individually select what stats you wish to monitor inside your project, or just monitor all stats.
