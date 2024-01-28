@@ -45,7 +45,7 @@
             .then(markdownText => {
                 // Convert Markdown to HTML using showdown.js
                 const converter = new showdown.Converter();
-                const htmlContent = converter.makeHtml(markdownText);
+                var htmlContent = converter.makeHtml(markdownText);
 
                 htmlContent = htmlContent.replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"([^>]*)>/g, '<a target="_blank" href="$1"$2>');
 
