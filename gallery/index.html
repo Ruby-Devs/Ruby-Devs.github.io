@@ -108,9 +108,17 @@
         // Append elements to the extension
         content.appendChild(downloadBtn);
         if (extensionData.recommended && extensionData.recommended === true) {
+          const a = document.createElement('a');
+          a.textContent = "Extension Documentation";
+          a.href = "/docs?href=" + encodeURIComponent(extensionData.name);
+          a.target = "_blank";
+        }
+
+        if (extensionData.docs && extensionData.docs === true) {
           // If recommended, add a special class for glow animation
           extension.classList.add('recommended-extension');
         }
+        
         content.appendChild(strong);
         content.appendChild(p);
 
