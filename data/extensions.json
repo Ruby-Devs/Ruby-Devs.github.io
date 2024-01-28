@@ -50,7 +50,8 @@
     "description": "See Analytics about your project, using our sophisticated web tools.",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/analytics.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/analytics.webp",
-    "recommended": true
+    "recommended": true,
+    "docs": true
   },
   {
     "name": "TurboWeather",
