@@ -47,6 +47,8 @@
                 const converter = new showdown.Converter();
                 const htmlContent = converter.makeHtml(markdownText);
 
+                htmlContent = htmlContent.replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"([^>]*)>/g, '<a target="_blank" href="$1"$2>');
+
                 // Replace new lines with <br> tags
                 const formattedHTML = htmlContent.replace(/\n/g, '<br>');
 
