@@ -1,6 +1,6 @@
 # FAQ
 Q: Are Ruby IDs supposed to be public?
-A: *YES!*  It's public when you release your project anyways. There is NO DANGER on sharing it. What are they gonna do, add clicks to your project?
+A: **YES!**  It's public when you release your project anyways. There is NO DANGER on sharing it. What are they gonna do, add clicks to your project?
 
 Q: Are your servers protected against raids?
 A: Yes. Our servers have a global rate limit of 1000 requests per second for a single IP address. We also use Cloudfare in all of our webpages, including our API.
