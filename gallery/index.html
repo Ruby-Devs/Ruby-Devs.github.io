@@ -118,7 +118,7 @@
         if (extensionData.docs && extensionData.docs === true) {
           const a = document.createElement('a');
           a.textContent = "Extension Documentation";
-          a.href = "/docs?href=" + encodeURIComponent(extensionData.name);
+          a.href = "/docs?ext=" + encodeURIComponent(extensionData.name);
           a.target = "_blank";
           content.appendChild(a);
         }
