@@ -23,9 +23,7 @@
       </div>
     </div>
   </header>
-<section class="container py-5 bg-darker d-flex flex-column">
 <div id="markdown-container"></div>
-</section>
 
 <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
 <script>
@@ -48,6 +46,14 @@
                 var htmlContent = converter.makeHtml(markdownText);
 
                 htmlContent = htmlContent.replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"([^>]*)>/g, '<a target="_blank" href="$1"$2>');
+
+                // Add section classes to major headers
+                htmlContent = htmlContent.replace(/<h1/g, '<section class="my-custom-section-class"><h1');
+                htmlContent = htmlContent.replace(/<h2/g, '<section class="my-custom-section-class"><h2');
+                htmlContent = htmlContent.replace(/<h3/g, '<section class="my-custom-section-class"><h3');
+                htmlContent = htmlContent.replace(/<h4/g, '<section class="my-custom-section-class"><h4');
+                htmlContent = htmlContent.replace(/<h5/g, '<section class="my-custom-section-class"><h5');
+                htmlContent = htmlContent.replace(/<h6/g, '<section class="my-custom-section-class"><h6');
 
                 // Replace new lines with <br> tags
                 const formattedHTML = htmlContent.replace(/\n/g, '<br>');
