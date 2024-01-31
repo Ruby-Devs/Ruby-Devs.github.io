@@ -48,7 +48,10 @@
                 htmlContent = htmlContent.replace(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"([^>]*)>/g, '<a target="_blank" href="$1"$2>');
 
                 // Add section classes to major headers
-                htmlContent = htmlContent.replace(/<h1/g, '<section class="container py-5 bg-darker d-flex flex-column"><h1');
+                htmlContent = htmlContent.replace(/<h1/g, '</section><section class="container py-5 bg-darker d-flex flex-column"><h1');
+
+                // Add closing </section> after the loop
+                htmlContent += '</section>';
 
                 // Replace new lines with <br> tags
                 const formattedHTML = htmlContent.replace(/\n/g, '<br>');
