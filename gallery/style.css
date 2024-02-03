@@ -85,7 +85,7 @@ a {
   transform: scale(1.05);
 }
 
-img {
+.container img {
   width: 100%;
   height: auto;
   max-height: 150px;
