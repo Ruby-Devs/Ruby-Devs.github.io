@@ -5,6 +5,7 @@
   filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }
 
-.leaflet-attribution-flag {
-  filter: none; /* Reset filter for this specific class */
+.leaflet-attribution-flag svg,
+.leaflet-attribution-flag path {
+  filter: none; /* Reset filter for svg and path elements inside this class */
 }
