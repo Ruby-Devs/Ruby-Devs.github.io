@@ -8,14 +8,14 @@
   },
   {
     "name": "PenguinGPT",
-    "description": "Using WorkingTurboGPT source code we now have made PenguinGPT! New features will come like DALL-E, all for free!",
+    "description": "Using WorkingTurboGPT's source code, we made PenguinGPT! New features will come like DALL-E, etc, all for free!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguingpt.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguingpt.png",
     "recommended": true
   },
   {
     "name": "GoFile",
-    "description": "Upload your files, with no limits using gofile.io service, updates may come with better features",
+    "description": "Upload any files with no limits using the gofile.io service. Updates may come with better features.",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/gofile.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/gofile.png",
     "recommended": false
@@ -44,6 +44,13 @@
     "description": "Send Webhook requests, that can be Discord or any type of webhook.",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinhook.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguinhook.png"
+  },
+  {
+    "name": "Ruby Maps",
+    "description": "An extension that lets you integrate the power of maps into your projects!",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/rubymaps.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/rubymaps.svg",
+    "recommended": true
   },
   {
     "name": "Analytics",
