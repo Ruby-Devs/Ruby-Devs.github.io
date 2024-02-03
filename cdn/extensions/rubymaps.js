@@ -199,7 +199,7 @@ class MapExt {
       menus: {
         MAPLAYERS: {
           acceptReporters: false,
-          items: ['OpenStreetMap', 'Google Maps', 'Google Satellite', 'Google Hybrid'],
+          items: ['OpenStreetMap', 'Google Maps', 'Google Satellite', 'Google Hybrid', 'Dark Matter'],
         },
         ZOOM: {
           acceptReporters: false,
@@ -360,83 +360,57 @@ class MapExt {
     const layerType = args.LAYER;
 
     switch (layerType) {
-      case 'canUseDarkMode':
+      case 'OpenStreetMap':
         canUseDarkMode = true;
-        if (map) {
-          map.eachLayer((layer) => {
-            if (layer instanceof L.TileLayer) {
-              map.removeLayer(layer);
-            }
-          });
-
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            minZoom: 2,
-            maxZoom: 19,
-            id: 'osm.streets',
-          }).addTo(map);
-        }
+        setTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 'osm.streets', '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
         break;
 
       case 'Google Hybrid':
         canUseDarkMode = false;
-        if (map) {
-          map.eachLayer((layer) => {
-            if (layer instanceof L.TileLayer) {
-              map.removeLayer(layer);
-            }
-          });
-
-          L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            minZoom: 2,
-            maxZoom: 19,
-            id: 'google.hybrid',
-          }).addTo(map);
-        }
+        setTileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', 'google.hybrid', '&copy; <a href="https://maps.google.com/" target="_blank">Google Maps</a>');
         break;
 
       case 'Google Satellite':
         canUseDarkMode = false;
-        if (map) {
-          map.eachLayer((layer) => {
-            if (layer instanceof L.TileLayer) {
-              map.removeLayer(layer);
-            }
-          });
-
-          L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            minZoom: 2,
-            maxZoom: 19,
-            id: 'google.satellite',
-          }).addTo(map);
-        }
+        setTileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 'google.satellite', '&copy; <a href="https://maps.google.com/" target="_blank">Google Maps</a>');
         break;
 
       case 'Google Maps':
         canUseDarkMode = true;
-        if (map) {
-          map.eachLayer((layer) => {
-            if (layer instanceof L.TileLayer) {
-              map.removeLayer(layer);
-            }
-          });
+        setTileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', 'google.maps', '&copy; <a href="https://maps.google.com/" target="_blank">Google Maps</a>');
+        break;
 
-          L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            minZoom: 2,
-            maxZoom: 19,
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-          }).addTo(map);
-        }
+      case 'Dark Matter':
+        canUseDarkMode = false;
+        setTileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', 'dark.matter', '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>');
         break;
 
       default:
         break;
     }
 
-    if (!canUseDarkMode) {
-      const darkModeStylesheet = document.querySelector('link[href="https://ruby-devs.vercel.app/maps/darkmode.css"]');
+    function setTileLayer(url, id, attribution) {
+      if (map) {
+        map.eachLayer((layer) => {
+          if (layer instanceof L.TileLayer) {
+            map.removeLayer(layer);
+          }
+        });
 
-      if (darkModeStylesheet) {
-        darkModeStylesheet.remove();
+        L.tileLayer(url, {
+          minZoom: 2,
+          maxZoom: 19,
+          id: id,
+          attribution: attribution,
+        }).addTo(map);
+      }
+
+      if (!canUseDarkMode) {
+        const darkModeStylesheet = document.querySelector('link[href="https://ruby-devs.vercel.app/maps/darkmode.css"]');
+
+        if (darkModeStylesheet) {
+          darkModeStylesheet.remove();
+        }
       }
     }
   }
