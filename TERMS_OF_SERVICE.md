@@ -21,11 +21,12 @@ The credits must not:
 - Be either invisible or not accessible to most people
 
 The credits must:
-- Be similar to "<insert name of service> made by Ruby Devs", without much alteration
+- Be similar to "(insert name of service) made by Ruby Devs", without much alteration
 - Contain a link to any of the following URLs: https://rubyteam.tech/ - https://rubydevs.tech/ - https://ruby-devs.vercel.app/
 - Be clearly visible and accessible for everyone to see
 
 If you have built, adapted or remixed our services, the credits also must note that your new work is different than our main services.
 
 We are not responsible for any violation of these rules, however we will request your content to be changed if it doesn't follow these terms.
+
 We are not responsible for the mishandling of our services by users, such as the manual inclusion of malware within one of our extensions, however we will request your content to be deleted if it doesn't follow these terms either.
