@@ -1,5 +1,5 @@
 # TOS
-**Last Updated: Saturday, February 3rd 2024 at 16:42 - East South America Standart Time**
+**Last Updated: Saturday, February 3rd 2024 at 16:46 - East South America Standart Time**
 
 These Terms of Service ("Terms") govern your use of everything Ruby Devs has made, such as extensions, website, code, images, etc (the "Service(s)"), provided to you by Ruby Devs ("we," "us," or "our").
 
@@ -15,7 +15,7 @@ None of our services must be used in any of the following situations:
 - Abuse of our services (such as attacking our API)
 - For sharing malware of any kind
 
-You can use any of of our services as long as you give proper credit.
+You can use any of our services in your work, as long as you give proper credit.
 The credits must not:
 - Say the wrong thing, like "In collaboration with Ruby Devs" if we didn't collaborate with you directly
 - Be either invisible or not accessible to most people
