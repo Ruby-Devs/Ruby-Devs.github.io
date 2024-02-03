@@ -1,5 +1,5 @@
 # TOS
-**Last Updated: 16:13 - East South America Standart Time**
+**Last Updated: Saturday, February 3rd 2024 at 16:14 - East South America Standart Time**
 
 These Terms of Service ("Terms") govern your use of everything Ruby Devs has made, such as extensions, website, code, images, etc (the "Service(s)"), provided to you by Ruby Devs ("we," "us," or "our").
 
