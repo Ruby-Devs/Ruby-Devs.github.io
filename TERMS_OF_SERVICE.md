@@ -18,7 +18,7 @@ None of our extensions must be used in any of the following situations:
 You can use any of of our services as long as you give proper credit.
 The credits must not:
 - Say the wrong thing, like "In collaboration with Ruby Devs" if we didn't collaborate with you directly
-- Be either invisible or not accessible to most
+- Be either invisible or not accessible to most people
 
 The credits must:
 - Be similar to "<insert name of service> made by Ruby Devs", without much alteration
