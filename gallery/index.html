@@ -76,62 +76,65 @@
     });
 
     function createExtensions(data) {
-      const container = document.getElementById('extensionContainer');
+  const container = document.getElementById('extensionContainer');
 
-      // Loop through the JSON data and create extensions
-      data.forEach((extensionData, index) => {
-        const extension = document.createElement('div');
-        extension.className = 'extension';
+  // Sort data based on recommended status (true first)
+  data.sort((a, b) => (b.recommended === true) - (a.recommended === true));
 
-        // Set inline style for animation delay based on index
-        extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
+  // Loop through the sorted JSON data and create extensions
+  data.forEach((extensionData, index) => {
+    const extension = document.createElement('div');
+    extension.className = 'extension';
 
-        const img = document.createElement('img');
-        img.src = extensionData.thumb;
-        img.alt = extensionData.name;
+    // Set inline style for animation delay based on index
+    extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
 
-        const content = document.createElement('div');
-        content.className = 'content';
+    const img = document.createElement('img');
+    img.src = extensionData.thumb;
+    img.alt = extensionData.name;
 
-        const strong = document.createElement('strong');
-        strong.textContent = extensionData.name;
+    const content = document.createElement('div');
+    content.className = 'content';
 
-        const p = document.createElement('p');
-        p.textContent = extensionData.description;
+    const strong = document.createElement('strong');
+    strong.textContent = extensionData.name;
 
-        const downloadBtn = document.createElement('button');
-        downloadBtn.className = 'download';
-        downloadBtn.textContent = 'Download';
-        downloadBtn.setAttribute('download-url', extensionData.url);
-        downloadBtn.addEventListener('click', function () {
-          downloadJS(extensionData.url, extensionData.name);
-        });
+    const p = document.createElement('p');
+    p.textContent = extensionData.description;
 
-        // Append elements to the extension
-        content.appendChild(downloadBtn);
-        if (extensionData.recommended && extensionData.recommended === true) {
-          // If recommended, add a special class for glow animation
-          extension.classList.add('recommended-extension');
-        }
-        
-        content.appendChild(strong);
-        content.appendChild(p);
+    const downloadBtn = document.createElement('button');
+    downloadBtn.className = 'download';
+    downloadBtn.textContent = 'Download';
+    downloadBtn.setAttribute('download-url', extensionData.url);
+    downloadBtn.addEventListener('click', function () {
+      downloadJS(extensionData.url, extensionData.name);
+    });
 
-        if (extensionData.docs && extensionData.docs === true) {
-          const a = document.createElement('a');
-          a.textContent = "Extension Documentation";
-          a.href = "/docs?ext=" + encodeURIComponent(extensionData.name);
-          a.target = "_blank";
-          content.appendChild(a);
-        }
-
-        extension.appendChild(img);
-        extension.appendChild(content);
-
-        // Append the extension to the container
-        container.appendChild(extension);
-      });
+    // Append elements to the extension
+    content.appendChild(downloadBtn);
+    if (extensionData.recommended && extensionData.recommended === true) {
+      // If recommended, add a special class for glow animation
+      extension.classList.add('recommended-extension');
     }
+    
+    content.appendChild(strong);
+    content.appendChild(p);
+
+    if (extensionData.docs && extensionData.docs === true) {
+      const a = document.createElement('a');
+      a.textContent = "Extension Documentation";
+      a.href = "/docs?ext=" + encodeURIComponent(extensionData.name);
+      a.target = "_blank";
+      content.appendChild(a);
+    }
+
+    extension.appendChild(img);
+    extension.appendChild(content);
+
+    // Append the extension to the container
+    container.appendChild(extension);
+  });
+}
 
     function downloadJS(url, filename) {
       fetch(url)
