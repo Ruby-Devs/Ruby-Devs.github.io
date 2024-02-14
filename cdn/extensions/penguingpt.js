@@ -232,7 +232,7 @@
 
 	  igModels: {
 	    acceptReporters: true,
-	    items: [{ text: "OpenJourney V4", value: "openjourney-v4" }, { text: "Dreamshaper 8", value: "dreamshaper-8" }, { text: "Anything V5", value: "anything-v5" }, { text: "Realistic Vision V5", value: "realistic-vision-v5" }]
+	    items: [{ text: "DALL-E 3", value: "dalle-3" }, { text: "OpenJourney V4", value: "openjourney-v4" }, { text: "Dreamshaper 8", value: "dreamshaper-8" }, { text: "Anything V5", value: "anything-v5" }, { text: "Realistic Vision V5", value: "realistic-vision-v5" }]
 	  }
 	  
         }
@@ -327,7 +327,12 @@
         return response.json();
       })
       .then(data => {
-        const botResponse = data.results;
+	let botResponse
+	if (requestedModel === "dalle-3") {
+		botResponse = data;
+	} else {
+		botResponse = data.results
+	}
         return botResponse;
       })
       .catch(error => {
