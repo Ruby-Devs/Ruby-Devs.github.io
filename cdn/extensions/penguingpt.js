@@ -201,7 +201,7 @@
 	  {
             opcode: 'generateImage',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'Generate [PROMPT] from [MODEL] and get URL',
+            text: 'Generate [PROMPT] from [MODEL] and get Response',
 	    arguments: {
                PROMPT: {
                  type: Scratch.ArgumentType.STRING,
@@ -329,7 +329,7 @@
       .then(data => {
 	let botResponse
 	if (requestedModel === "dalle-3") {
-		botResponse = data;
+		botResponse = JSON.stringify(data);
 	} else {
 		botResponse = data.results
 	}
