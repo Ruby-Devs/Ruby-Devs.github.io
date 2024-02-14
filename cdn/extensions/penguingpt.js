@@ -22,6 +22,7 @@
         name: "PenguinGPT",
         menuIconURI: extIcon,
         blockIconURI: gptIcon,
+	color1: '#009CCC',
         blocks: [
 		{
             opcode: "__NOUSEOPCODE",
