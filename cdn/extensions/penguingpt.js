@@ -306,19 +306,28 @@
 
                     igModels: {
                         acceptReporters: true,
-                        items: [{
+                        items: [
+                        {
                             text: "DALL-E 3",
                             value: "dalle-3"
-                        }, {
+                        }, 
+                        {
+                            text: "Midjourney",
+                            value: "midjourney"
+                        },
+                        {
                             text: "OpenJourney V4",
                             value: "openjourney-v4"
-                        }, {
+                        }, 
+                        {
                             text: "Dreamshaper 8",
                             value: "dreamshaper-8"
-                        }, {
+                        }, 
+                        {
                             text: "Anything V5",
                             value: "anything-v5"
-                        }, {
+                        }, 
+                        {
                             text: "Realistic Vision V5",
                             value: "realistic-vision-v5"
                         }]
