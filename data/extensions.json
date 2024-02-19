@@ -9,7 +9,7 @@
   {
     "name": "Ruby Auth",
     "description": "Save a lot of pain by authenticating with a Scratch account, the easy way.",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/1rubyauth.js",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/rubyauth.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/rubyauth.png",
     "recommended": true
   },
