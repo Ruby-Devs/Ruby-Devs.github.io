@@ -14,6 +14,7 @@ class RubyAuthExt {
       id: 'rubyauthext',
       name: 'Ruby Auth',
       color1: "#d93434",
+      docsURI: "https://gist.github.com/Gen1x-ALT/b59154880385379f08b4c134f7b2b568",
       blocks: [
         {
           blockType: Scratch.BlockType.LABEL,
