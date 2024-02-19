@@ -6,25 +6,31 @@ body {
   color: #e7e5ff;
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* Set a minimum height to include the footer */
-  box-sizing: border-box; /* Include padding and border in the total height */
+  min-height: 100vh;
+  /* Set a minimum height to include the footer */
+  box-sizing: border-box;
+  /* Include padding and border in the total height */
 }
 
 #logo {
-    margin-right: 10px; /* Adjust margin as needed */
-    margin-top: -7px; /* Adjust margin as needed */
+  margin-right: 10px;
+  /* Adjust margin as needed */
+  margin-top: -7px;
+  /* Adjust margin as needed */
 }
 
 .black-text {
-    color: black;
+  color: black;
 }
 
 header {
   background-color: #333;
   padding: 1em;
   display: flex;
-  border-bottom-left-radius: 10px; /* Adjust the value as needed */
-  border-bottom-right-radius: 10px; /* Adjust the value as needed */
+  border-bottom-left-radius: 10px;
+  /* Adjust the value as needed */
+  border-bottom-right-radius: 10px;
+  /* Adjust the value as needed */
 }
 
 h1 {
@@ -32,7 +38,8 @@ h1 {
   font-size: 2em;
 }
 
-h1, p {
+h1,
+p {
   margin: 0;
 }
 
@@ -55,7 +62,9 @@ p {
   font-weight: bold;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="button"]{
   background: transparent;
   font-family: 'Roboto', sans-serif;
   color: #d93434;
@@ -82,7 +91,9 @@ button {
   cursor: not-allowed;
 }
 
-button:hover {
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
   background: #d93434;
   color: white;
 }
@@ -98,7 +109,8 @@ footer {
 }
 
 .bg-darker {
-  background-color: #121212; /* this is a common dark mode background color */
+  background-color: #121212;
+  /* this is a common dark mode background color */
 }
 
 body.bg-dark {
@@ -114,7 +126,13 @@ a {
   color: #0099FF;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: #fff;
 }
 
@@ -142,12 +160,19 @@ body.bg-dark {
   border-radius: 7px;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   /*margin: 5px;
   padding: 10px 15px;*/
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: #fff;
 }
 
@@ -195,6 +220,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .rounded-image {
-  border-radius: 10px; /* You can adjust the border-radius as needed */
+  border-radius: 10px;
+  /* You can adjust the border-radius as needed */
   overflow: hidden;
 }

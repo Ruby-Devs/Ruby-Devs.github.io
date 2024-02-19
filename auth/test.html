@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Ruby Auth" />
+  <meta property="og:description"
+    content="This link is not meant for sharing. It's supposed to be used within applications to log in using Scratch." />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Ruby Devs - RubyAuth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <style>
+    #copy {
+      all: unset;
+      transition: background-color 0.5s ease;
+      border-radius: 10px;
+    }
+
+    #copy:hover {
+      cursor: pointer;
+      background-color: black;
+    }
+
+    .copyImage {
+      max-width: 35px;
+      filter: invert(100%);
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-white">
+
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img id="logo" style="margin-left: 20px;" src="/logo.svg" alt="Ruby Devs Logo" height="80"
+            class="img-fluid"></a>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
+        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center"
+    style="color: white;">
+
+    <!-- Add the button to initiate the authentication process -->
+    <button id="authButton" onclick="startAuth()">Start Authentication</button>
+
+    <!-- Display the data received from the opened window -->
+    <ul id="data"></ul>
+
+    <script>
+      function startAuth() {
+        // Open a new window with the /auth URL
+        const authWindow = window.open('/auth', '_blank', 'width=600,height=600');
+
+        // Listen for messages from the child window
+        window.addEventListener('message', (event) => {
+          // Check if the origin of the message is the same as the current origin
+          if (event.origin === window.location.origin) {
+            // Handle the received data and update the DOM
+            const stuff = event.data;
+            for (const key in stuff) {
+              document.getElementById('data').innerHTML += `<li>${key}: ${JSON.stringify(stuff[key])}</li>`;
+            }
+          }
+        });
+      }
+    </script>
+
+
+  </section>
+</body>
+
+</html>

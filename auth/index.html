@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Ruby Auth" />
+  <meta property="og:description"
+    content="This link is not meant for sharing. It's supposed to be used within applications to log in using Scratch." />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Ruby Devs - Ruby Auth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/x-icon" href="https://rubyteam.tech/gallery/img/ruby.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <style>
+    #copy {
+      all: unset;
+      transition: background-color 0.5s ease;
+      border-radius: 10px;
+    }
+
+    #copy:hover {
+      cursor: pointer;
+      background-color: black;
+    }
+
+    .copyImage {
+      max-width: 35px;
+      filter: invert(100%);
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-white">
+
+  <header class="container py-4">
+    <div class="row">
+      <div class="col-4">
+        <a href="/"><img id="logo" style="margin-left: 20px;" src="/logo.svg" alt="Ruby Devs Logo" height="80"
+            class="img-fluid"></a>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 fw-bold text-white">Ruby Devs</h1>
+        <p class="lead text-white">We make PenguinMod and TurboWarp cooler.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center"
+    style="color: white;">
+    <h2>Use Scratch to log in</h2>
+    <p>You need to use Scratch to log in to <b><span id="app">Placeholder</span></b>.</p>
+  </section>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center"
+    style="color: white;">
+    <h2>Auto log in</h2>
+    <p>Auto log in is not implemented for security reasons. Do not suggest this in the Discord server.</p>
+    <p>However, if we find a secure way to implement it, we will.</p>
+  </section>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2>Comment on project (recommended)</h2>
+    <p>Copy the code provided, then comment it on the Ruby Auth project.</p>
+    <br>
+    <center>
+      <form id="comment-login" style="color: white;">
+        <label for="name">Scratch Username:</label><br>
+        <input type="text" id="usernameProject" required><br><br>
+        <input type="submit" value="Done" class="btn">
+        <input id="navAuth" type="button" value="Go to auth project" class="btn"
+          onclick="window.open('https://scratch.mit.edu/projects/967387397/')">
+      </form>
+
+      <br><br>
+      <code class="code-block" id="codeCopyProject" style="color: white;"></code>
+      <<button id="copy" onclick="copyCodeProject()" title="Copy code"><img title="Copy code" class="copyImage"
+          src="copy.svg"></button><br><br>
+    </center>
+  </section>
+
+  <section class="container py-5 bg-darker d-flex flex-column justify-content-center align-items-center">
+    <h2>Profile comments login</h2>
+    <p>Copy the code provided, then comment it on your profile.</p>
+    <br>
+    <center>
+      <form id="profile-login" style="color: white;">
+        <label for="name">Scratch Username:</label><br>
+        <input type="text" id="username" required><br><br>
+        <input type="submit" value="Done" class="btn">
+        <input id="navPf" type="button" value="Navigate to profile" class="btn">
+
+      </form>
+
+      <br><br>
+      <code class="code-block" id="codeCopy" style="color: white;"></code>
+      <button id="copy" onclick="copyCode()" title="Copy code"><img title="Copy code" class="copyImage"
+          src="copy.svg"></button><br><br>
+    </center>
+  </section>
+
+  <script>
+    const rand = (min, max) => Math.floor(Math.random() * (max - min) + min)
+
+    const checkProfileComments = async (username) => {
+      try {
+        const encodedUsername = encodeURIComponent(username);
+        const url = `https://corsproxy.org/?http%3A%2F%2Fmany-things.hstn.me%2Fscratch%2Fprofile-comments_json.php%3Fusername%3D${encodedUsername}%26page%3D1`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error checking profile comments:', error);
+        return [];
+      }
+    };
+
+    // Function to validate profile comment
+    const validateProfileComment = async (username, code) => {
+      const comments = await checkProfileComments(username);
+      return comments.some(comment => comment.author === username && comment.comment === code);
+    };
+
+    if (rand(1, 100) == 1) {
+      document.getElementById("logo").src = "auth/cat.jpg"
+    }
+
+    let savedUsernames = JSON.parse(localStorage.getItem('savedUsernames')) || [];
+
+    const validScratchUsername = async (username, popup = true) => {
+      if (username != "" && !/\s|[^\w-]/g.test((username))) {
+        const url = 'https://corsproxy.io/?https://api.scratch.mit.edu/accounts/checkusername/' + username;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.msg === 'username exists') {
+            return true
+          } else {
+            if (popup == true) {
+              Swal.fire({
+                title: "That Scratch Account doesn't exist!", // account not exist error code part
+                html: 'If that Scratch account does exist, the Scratch API might be down or was changed. <a href="troubleshoot.html">More troubleshooting methods</a>',
+                icon: "error"
+              });
+            }
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      } else {
+        if (popup == true) { // not vaild error code part
+          Swal.fire({
+            title: 'Hmm.',
+            text: "That isn't a valid Scratch username.",
+            icon: 'error',
+            position: 'center',
+            timer: 2000,
+            showConfirmButton: false,
+          });
+        }
+        return false
+      }
+      return false
+
+    }
+
+    document.getElementById("navPf").onclick = async () => {
+      let username = document.getElementById("username").value;
+      if (await validScratchUsername(username)) {
+        window.open("https://scratch.mit.edu/users/" + username)
+      }
+    }
+
+    /* absolute chatgpt tomfoolery below (do not uncomment)
+    const getAvatarUrl = (username) => `https://trampoline.turbowarp.org/avatars/by-username/${username}`;
+
+    // Function to update the saved usernames list
+    const updateSavedUsernamesList = () => {
+      const savedUsernamesList = document.getElementById("savedUsernamesList");
+
+      // Clear the existing list
+      savedUsernamesList.innerHTML = "";
+
+      // Retrieve saved usernames from local storage
+      const savedUsernames = JSON.parse(localStorage.getItem('savedUsernames')) || [];
+
+      // Populate the list
+      savedUsernames.forEach(async (username) => {
+        const listItem = document.createElement("div");
+        const avatarImg = document.createElement("img");
+
+        avatarImg.src = await getAvatarUrl(username);
+        avatarImg.alt = `${username}'s Avatar`;
+        avatarImg.style.width = "50px"; // Set the desired width for avatars
+        avatarImg.style.padding = "3px";
+
+        listItem.appendChild(avatarImg);
+
+        const usernameSpan = document.createElement("span");
+        usernameSpan.textContent = username;
+        usernameSpan.style.marginLeft = "10px"; // Adjust the margin as needed
+
+        listItem.style.cursor = "pointer";
+
+        listItem.appendChild(usernameSpan);
+
+        // Add a click event listener to each list item
+        listItem.addEventListener('click', async () => {
+          // Trigger the behavior when a login is successful
+          await successfulLoginBehavior(username);
+        });
+
+        savedUsernamesList.appendChild(listItem);
+      });
+    };
+
+    // Function to perform the behavior when a login is successful
+    const successfulLoginBehavior = async (username) => {
+      fetch('https://corsproxy.io?https://api.scratch.mit.edu/users/' + username)
+        .then(response => response.json())
+        .then(data => {
+          window.location.replace(destiny + "#" + btoa(JSON.stringify(data)));
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    };
+
+    // Call the function to initially populate the list
+    updateSavedUsernamesList();
+
+    chatgpt tomfoolery done, continue
+    */
+
+    const app = document.getElementById('app');
+    const params = new URLSearchParams(window.location.search);
+    let destiny = params.get('url');
+    let appName = params.get('app');
+    if (destiny) {
+      destiny = atob(destiny);
+    } else {
+      destiny = "/auth/test.html" // :troll:
+    }
+    if (appName) {
+      app.textContent = appName;
+    } else {
+      appName = "your mother, inc" // :troll_hands: your father
+    }
+
+    //generate random code
+    function generateRandomCode(length) {
+      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let code = '';
+
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        code += characters.charAt(randomIndex);
+        if (i % 4 == 0) {
+          code += "-";
+        }
+      }
+
+      return "RUBY-AUTH_" + code;
+    }
+
+    const code = generateRandomCode(rand(23, 25));
+
+    //copy code func
+    function copyCode() {
+      const codeElement = document.getElementById('codeCopy');
+      // Create a temporary textarea element to copy the content to the clipboard
+      var tempTextarea = document.createElement('textarea');
+      tempTextarea.value = codeElement.innerHTML;
+
+      // Append the textarea to the document
+      document.body.appendChild(tempTextarea);
+
+      // Select the content of the textarea
+      tempTextarea.select();
+      tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the selected content to the clipboard
+      document.execCommand('copy');
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextarea);
+      Swal.fire({
+        title: 'Code copied!',
+        icon: 'success',
+        position: 'center',
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    }
+
+    const codeProject = generateRandomCode(rand(23, 25));
+
+    // copy code func for project comment
+    function copyCodeProject() {
+      const codeElementProject = document.getElementById('codeCopyProject');
+      var tempTextareaProject = document.createElement('textarea');
+      tempTextareaProject.value = codeElementProject.innerHTML;
+      document.body.appendChild(tempTextareaProject);
+      tempTextareaProject.select();
+      tempTextareaProject.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      document.body.removeChild(tempTextareaProject);
+      Swal.fire({
+        title: 'Code copied!',
+        icon: 'success',
+        position: 'center',
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    }
+
+    // puts code onto html for project comment
+    document.getElementById("codeCopyProject").innerHTML = codeProject;
+    document.getElementById("comment-login").onsubmit = submitProjectCommentForm;
+
+    // puts code onto html
+    document.getElementById("codeCopy").innerHTML = code;
+    document.getElementById("profile-login").onsubmit = submitForm
+
+    // on submit form for project comment
+    async function submitProjectCommentForm(e) {
+      e.preventDefault();
+      let usernameProject = document.getElementById("usernameProject").value;
+      if (await validScratchUsername(usernameProject, true) == false) {
+        console.log("Account " + usernameProject + " does not exist");
+        return;
+      }
+
+      const projectId = 967387397; // Replace with the actual project ID
+      const commentsUrl = `https://corsproxy.org/?https%3A%2F%2Fapi.scratch.mit.edu%2Fusers%2F${encodeURIComponent(usernameProject)}%2Fprojects%2F${projectId}%2Fcomments%3Foffset%3D0%26limit%3D40`;
+
+      try {
+        let commentsResponse = await fetch(commentsUrl);
+        let commentsData = await commentsResponse.json();
+
+        if (Array.isArray(commentsData) && commentsData.length > 0) {
+          const matchingComment = commentsData.find(comment =>
+            comment.content.includes(codeProject) && comment.author.username === usernameProject
+          );
+
+          if (matchingComment) {
+            // Successful login behavior
+            // You can customize this part based on your requirements
+            Swal.fire({
+              title: "Logged in!",
+              text: "Close this alert to continue to " + appName + ".",
+              icon: "success"
+            }).then((result) => {
+              fetch('https://corsproxy.io?https://api.scratch.mit.edu/users/' + usernameProject)
+                .then(response => response.json())
+                .then(data => {
+                  // Send user data to parent window
+                  window.opener.postMessage(data, '*');
+                  window.close(); // Close the current window
+                })
+                .catch(error => console.error('Error fetching data:', error));
+            });
+          } else {
+            Swal.fire({
+              title: "Failed to login",
+              html: "Did you comment the code on the right project? It could also be your internet connection. <a href='auth/troubleshoot.html'>More troubleshooting methods</a>",
+              icon: "error"
+            });
+          }
+        } else {
+          console.log("No comments found for the project");
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+
+    //on submit form
+    async function submitForm(e) {
+      e.preventDefault();
+      let username = document.getElementById("username").value;
+      if (await validScratchUsername(username, true) == false) {
+        console.log("Account " + username + " does not exist");
+        return;
+      }
+
+      const isValidComment = await validateProfileComment(username, code);
+
+      if (isValidComment) {
+        Swal.fire({
+          title: "Logged in!",
+          text: "Close this alert to continue to " + appName + ".",
+          icon: "success"
+        }).then((result) => {
+          console.log("Closing window");
+
+          fetch('https://corsproxy.io?https://api.scratch.mit.edu/users/' + username)
+            .then(response => response.json())
+            .then(data => {
+              // Send user data to parent window
+              window.opener.postMessage(data, '*');
+              window.close(); // Close the current window
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        });
+        console.log("Can log in");
+      } else {
+        Swal.fire({
+          title: "Failed to login",
+          html: "Did you comment the code on the right profile? It could also be your internet connection. <a href='auth/troubleshoot.html'>More troubleshooting methods</a>",
+          icon: "error"
+        });
+        console.log("Can't log in");
+      }
+    }
+
+  </script>
+  <footer>
+    <small>Vectors and icons by <a href="https://www.svgrepo.com" target="_blank">SVG Repo </a>(excluding the Ruby Devs
+      logo)</small>
+
+  </footer>
+</body>
+
+</html>
