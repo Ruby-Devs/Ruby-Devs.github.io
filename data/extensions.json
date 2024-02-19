@@ -7,6 +7,13 @@
     "recommended": true
   },
   {
+    "name": "Ruby Auth",
+    "description": "Save a lot of pain by authenticating with a Scratch account, the easy way.",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/1rubyauth.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/rubyauth.png",
+    "recommended": true
+  },
+  {
     "name": "PenguinGPT",
     "description": "Using WorkingTurboGPT's source code, we made PenguinGPT! New features will come like DALL-E, etc, all for free!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguingpt.js",
