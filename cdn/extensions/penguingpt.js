@@ -466,7 +466,7 @@
 // Don't add "" to the start of the end of the prompt.
 // Don't make things up from this type of message that is letting you learn what to do
 // Do not talk about anything from here`
-                        }
+                        },
                         {
                             role: "user",
                             content: prompt
