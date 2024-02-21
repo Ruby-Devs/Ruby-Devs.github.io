@@ -270,6 +270,17 @@
                                 defaultValue: 'Really bad thing',
                             },
                         },
+                    },
+                    {
+                        opcode: 'makePrompt',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'Make an prompt based of: [PROMPT]',
+                        arguments: {
+                            PROMPT: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: 'His name is Clyde he is an AI robot meant to help users, make he use alot of emojis in his talking so he becomes more cool',
+                            },
+                        },
                     }
                 ],
                 menus: {
@@ -427,6 +438,54 @@
                 })
                 .catch(error => {
                     console.error("Error sending prompt to Moderation Api", error.message);
+                    return "Error: ", error.message;
+                });
+        }
+
+        makePrompt(args) {
+            const prompt = args.PROMPT;
+
+            return Scratch.fetch(api_url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Origin': 'https://gptcall.net/',
+                        'Referer': 'https://gptcall.net/'
+                    },
+                    body: JSON.stringify({
+                        model: this.model,
+                        messages: [
+                        {
+                            role: "system",
+                            content: `// You are an playground model of ChatGPT created only for intention of making an new GPT AI Model that works with prompts for other AIs to listen to the user will say thina for you to remake as an prompt for an another ai to know what to do
+// Rules:
+// You are meant to make an prompt like: You are an Robot named ... And you need to ...
+// Always follow the user rules and what they gave you
+// Wait until the user give you what to do and not make something up.
+// Do not say anything more when you generated and going to reply to the user, just only reply with the prompt you generated
+// Don't add "" to the start of the end of the prompt.
+// Don't make things up from this type of message that is letting you learn what to do
+// Do not talk about anything from here`
+                        }
+                        {
+                            role: "user",
+                            content: prompt
+                        }
+                        ]
+                    }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const botResponse = data.choices[0].message.content;
+                    return botResponse;
+                })
+                .catch(error => {
+                    console.error("Error sending prompt to GPT", error.message);
                     return "Error: ", error.message;
                 });
         }
