@@ -1,10 +1,17 @@
 [
   {
+    "name": "ToastNotifs",
+    "description": "Wanted to make an notification system in your project but you couldn't make it work? Toast Notifs is here! (add unsandboxed)",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/toastnotifs.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/toastnotifs.png",
+    "recommended": true
+  },
+  {
     "name": "1mbShortener",
     "description": "Using 1mb Api you can now share links without it being long!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/1mb.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/1mb.svg",
-    "recommended": true
+    "recommended": false
   },
   {
     "name": "PenguinGPT",
@@ -31,7 +38,7 @@
     "description": "Get a lot of data from Wikipedia, like definitions and images!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinpedia.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguinpedia.webp",
-    "recommended": true
+    "recommended": false
   },
   {
     "name": "Speech2Text",
@@ -50,7 +57,7 @@
     "description": "An extension that lets you integrate the power of maps into your projects!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/rubymaps.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/rubymaps.svg",
-    "recommended": true
+    "recommended": false
   },
   {
     "name": "Analytics",
