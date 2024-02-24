@@ -82,6 +82,10 @@
   }
 
   class ToastNotifsExt {
+    constructor() {
+        this.soundwhenalertEnabled = false
+    }
+    
     getInfo() {
       return {
         id: "toastnotifs",
@@ -150,6 +154,11 @@
             },
           },
           {
+            opcode: "__NOOPCODE",
+            text: "Customization",
+            blockType: Scratch.BlockType.LABEL,
+          },
+          {
             opcode: "setStyleOfTo",
             text: "Set [STYLE] of [ALLTYPES] to [VALUE]",
             blockType: Scratch.BlockType.COMMAND,
@@ -179,7 +188,6 @@
               },
             },
           },
-          '---',
           {
             opcode: "getHexColour",
             text: "Colour [HEX]",
@@ -188,6 +196,27 @@
               HEX: {
                 type: Scratch.ArgumentType.COLOR
               },
+            },
+          },
+          {
+            opcode: "__NOOPCODE",
+            text: "Configuration (Can be experimental)",
+            blockType: Scratch.BlockType.LABEL,
+          },
+          {
+            opcode: "setConfig",
+            text: "Set config [CONFIG] to [VALUE]",
+            blockType: Scratch.BlockType.COMMAND,
+            arguments: {
+              CONFIG: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "soundwhenalertEnabled",
+                menu: "configs",
+              },
+              VALUE: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "true",
+              }
             },
           },
         ],
@@ -202,6 +231,7 @@
             "padding",
           ],
           setStyleAllTypes: ["toast", "notification", "alert"],
+          configs: ["soundwhenalertEnabled"],
         },
       };
     }
@@ -299,6 +329,11 @@
       notificationToast.innerHTML = `<span class="close-button">×</span><div class="line ${type}"></div>${text}`;
       document.body.appendChild(notificationToast);
 
+      if (this.soundwhenalertEnabled = true) {
+        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+        audio.play();
+      }
+
       var closeButton = notificationToast.querySelector(".close-button");
       closeButton.addEventListener("click", function () {
         notificationToast.classList.add("fade-out");
@@ -388,6 +423,13 @@
 
       document.body.appendChild(toast);
 
+      console.log(this.soundwhenalertEnabled)
+
+      if (this.soundwhenalertEnabled = true) {
+        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+        audio.play();
+      }
+
       setTimeout(function () {
         toast.style.top = "0";
       }, 100);
@@ -455,6 +497,11 @@
       alert.textContent = text;
       document.body.appendChild(alert);
 
+      if (this.soundwhenalertEnabled = true) {
+        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+        audio.play();
+      }
+
       // Schedule removal of the alert after duration
       setTimeout(function () {
         alert.style.animation = "fadeOut 0.5s ease-out forwards"; // Apply fade-out animation
@@ -492,6 +539,11 @@
 
     getHexColour(args) {
       return args.HEX;
+    }
+
+    setConfig(args) {
+      const configname = args.CONFIG
+      this[configname] = args.VALUE
     }
   }
 
