@@ -24,7 +24,7 @@
 //          (((((((((((((((((((((((((((((((((((((((((
 //
 //                       -= Toast Notifs =-
-//   What did you want Alerts? Notifs that are easily customizable?
+//  Did you want alerts? Notificationss that are easily customizable?
 //        This is the only and best notification extension!
 //           Created by MubiLop + 2digit (discord user)
 //             From Ruby Devs (https://rubyteam.tech/)
@@ -38,54 +38,46 @@
     return {
       toast: {
         backgroundColour: null,
+        fontColour: null,
         fontSize: null,
         borderRadius: null,
         padding: null,
+        soundLink: null,
       },
       notification: {
         backgroundColour: null,
+        fontColour: null,
         fontSize: null,
         borderRadius: null,
         padding: null,
+        soundLink: null,
       },
       alert: {
         backgroundColour: null,
+        fontColour: null,
         fontSize: null,
         borderRadius: null,
         padding: null,
+        soundLink: null,
       },
     };
   }
 
-  const someStylesOfToast = defaultStyles();
+  var toastConfig = {
+    soundWhenAlertEnabled: "true",
+  };
 
-  function validCssColour(colour) {
-    // HLEP
+  const stylesToast = defaultStyles();
 
+  function validColour(colour) {
     if (typeof colour != "string") return false;
 
     const hexRegex = /^#[0-9A-F]{6}$/i;
-    const rgbRegex = /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/;
-    const rgbaRegex =
-      /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+(\.\d+)?)\s*\)$/;
-    const hslRegex = /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/;
-    const hslaRegex =
-      /^hsla\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*,\s*(\d+(\.\d+)?)\s*\)$/;
 
-    return (
-      hexRegex.test(colour) ||
-      rgbRegex.test(colour) ||
-      rgbaRegex.test(colour) ||
-      hslRegex.test(colour) ||
-      hslaRegex.test(colour)
-    );
+    return hexRegex.test(colour);
   }
 
   class ToastNotifsExt {
-    constructor() {
-        this.soundwhenalertEnabled = false
-    }
-    
     getInfo() {
       return {
         id: "toastnotifs",
@@ -116,7 +108,7 @@
           },
           {
             opcode: "showNotificationToast",
-            text: "Show Notification Toast with text [TEXT] of type [TYPE] at position [POSITION] custom css? [STYLES]",
+            text: "Show Notification Toast with text [TEXT] at position [POSITION] custom css? [STYLES]",
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               TEXT: {
@@ -194,7 +186,7 @@
             blockType: Scratch.BlockType.REPORTER,
             arguments: {
               HEX: {
-                type: Scratch.ArgumentType.COLOR
+                type: Scratch.ArgumentType.COLOR,
               },
             },
           },
@@ -210,13 +202,13 @@
             arguments: {
               CONFIG: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "soundwhenalertEnabled",
+                defaultValue: "soundWhenAlertEnabled",
                 menu: "configs",
               },
               VALUE: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: "true",
-              }
+              },
             },
           },
         ],
@@ -226,12 +218,16 @@
           yesorno: ["yes", "no"],
           setStyle: [
             { text: "background colour", value: "backgroundColour" },
+            { text: "font colour", value: "fontColour" },
             { text: "font size", value: "fontSize" },
             { text: "border roundness", value: "borderRadius" },
             "padding",
+            { text: "sound url", value: "soundLink" },
           ],
           setStyleAllTypes: ["toast", "notification", "alert"],
-          configs: ["soundwhenalertEnabled"],
+          configs: [
+            { text: "play sound when alert", value: "soundWhenAlertEnabled" },
+          ],
         },
       };
     }
@@ -241,12 +237,12 @@
       var position = args.POSITION;
       var type = args.TYPE;
 
-      var size = someStylesOfToast["notification"].fontSize ?? 16;
+      var size = stylesToast["notification"].fontSize ?? 16;
       var bgColour =
-        someStylesOfToast["notification"].backgroundColour ??
-        "rgba(0, 0, 0, 0.8)";
-      var borderRadius = someStylesOfToast["notification"].borderRadius ?? 5;
-      var padding = someStylesOfToast["notification"].padding ?? 10;
+        stylesToast["notification"].backgroundColour ?? "rgba(0, 0, 0, 0.8)";
+      var borderRadius = stylesToast["notification"].borderRadius ?? 5;
+      var padding = stylesToast["notification"].padding ?? 10;
+      var fontColour = stylesToast["notification"].fontColour ?? "#FFFFFF";
 
       var styles = args.STYLES;
 
@@ -258,70 +254,71 @@
       var notificationToastStyle = document.createElement("style");
       notificationToastStyle.id = "notificationToastStyle";
       notificationToastStyle.textContent = `
-                .notification-toast {
-                    position: fixed;
-                    z-index: 9999;
-                    right: 10px;
-                    padding: ${padding}px ${padding * 2}px;
-                    border-radius: ${borderRadius}px;
-                    font-family: Arial, sans-serif;
-                    font-size: ${size}px;
-                    background-color: ${bgColour};
-                    ${styles}
-                    animation: slideIn 0.5s ease-in-out;
-                }
-                .notification-toast.up {
-                    top: 10px;
-                }
-                .notification-toast.middle {
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-                .notification-toast.down {
-                    bottom: 10px;
-                }
-                .notification-toast.info {
-                    color: #2196F3;
-                }
-                .notification-toast.success {
-                    color: #4CAF50;
-                }
-                .notification-toast.warning {
-                    color: #FFEB3B;
-                }
-                .notification-toast.error {
-                    color: #F44336;
-                }
-                .notification-toast .line {
-                    border-top: 3px solid;
-                    margin-bottom: 5px;
-                }
-                .notification-toast .close-button {
-                    position: absolute;
-                    top: 5px;
-                    right: 5px;
-                    cursor: pointer;
-                }
-                .notification-toast .close-button:hover {
-                    color: #fff;
-                }
-                @keyframes slideIn {
-                    from {
-                        right: -300px;
-                    }
-                    to {
-                        right: 10px;
-                    }
-                }
-                @keyframes fadeOut {
-                    from {
-                        opacity: 1;
-                    }
-                    to {
-                        opacity: 0;
-                    }
-                }
-            `;
+                  .notification-toast {
+                      position: fixed;
+                      z-index: 9999;
+                      right: 10px;
+                      padding: ${padding}px ${padding * 2}px;
+                      border-radius: ${borderRadius}px;
+                      font-family: Arial, sans-serif;
+                      font-size: ${size}px;
+                      color: ${fontColour};
+                      background-color: ${bgColour};
+                      animation: slideIn 0.5s ease-in-out;
+                      ${styles}
+                  }
+                  .notification-toast.up {
+                      top: 10px;
+                  }
+                  .notification-toast.middle {
+                      top: 50%;
+                      transform: translateY(-50%);
+                  }
+                  .notification-toast.down {
+                      bottom: 10px;
+                  }
+                  .notification-toast.info {
+                      color: #2196F3;
+                  }
+                  .notification-toast.success {
+                      color: #4CAF50;
+                  }
+                  .notification-toast.warning {
+                      color: #FFEB3B;
+                  }
+                  .notification-toast.error {
+                      color: #F44336;
+                  }
+                  .notification-toast .line {
+                      border-top: 3px solid;
+                      margin-bottom: 5px;
+                  }
+                  .notification-toast .close-button {
+                      position: absolute;
+                      top: 5px;
+                      right: 5px;
+                      cursor: pointer;
+                  }
+                  .notification-toast .close-button:hover {
+                      color: #fff;
+                  }
+                  @keyframes slideIn {
+                      from {
+                          right: -300px;
+                      }
+                      to {
+                          right: 10px;
+                      }
+                  }
+                  @keyframes fadeOut {
+                      from {
+                          opacity: 1;
+                      }
+                      to {
+                          opacity: 0;
+                      }
+                  }
+              `;
       document.head.appendChild(notificationToastStyle);
 
       var notificationToast = document.createElement("div");
@@ -329,8 +326,11 @@
       notificationToast.innerHTML = `<span class="close-button">×</span><div class="line ${type}"></div>${text}`;
       document.body.appendChild(notificationToast);
 
-      if (this.soundwhenalertEnabled = true) {
-        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+      if (toastConfig["soundWhenAlertEnabled"] == "true") {
+        var audioLink =
+          stylesToast["notification"].soundLink ??
+          "https://ruby-devs.vercel.app/cdn/appear.mp3";
+        var audio = new Audio(audioLink);
         audio.play();
       }
 
@@ -345,7 +345,7 @@
 
       setTimeout(function () {
         notificationToast.classList.add("fade-out");
-        
+
         setTimeout(function () {
           notificationToast.remove();
           notificationToastStyle.remove();
@@ -360,10 +360,11 @@
       var isRounded = args.ROUNDED;
       var existingStyle = document.getElementById("toastStyle");
 
-      var size = someStylesOfToast["toast"].fontSize ?? 18;
-      var bgColour = someStylesOfToast["toast"].backgroundColour ?? "#333";
-      var borderRadius = someStylesOfToast["toast"].borderRadius ?? 10;
-      var padding = someStylesOfToast["toast"].padding ?? 20;
+      var size = stylesToast["toast"].fontSize ?? 18;
+      var bgColour = stylesToast["toast"].backgroundColour ?? "#333";
+      var borderRadius = stylesToast["toast"].borderRadius ?? 10;
+      var padding = stylesToast["toast"].padding ?? 20;
+      var fontColour = stylesToast["toast"].fontColour ?? "#FFFFFF";
 
       if (existingStyle) {
         existingStyle.remove();
@@ -376,32 +377,32 @@
       var toastStyle = document.createElement("style");
       toastStyle.id = "toastStyle";
       toastStyle.textContent = `
-                #toast {
-                    position: fixed;
-                    z-index: 9999;
-                    top: -100px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background-color: ${bgColour};
-                    color: #fff;
-                    padding: ${padding}px;
-                    border-radius: ${borderRadius}px;
-                    font-family: Arial, sans-serif;
-                    font-size: ${size}px;
-                    display: flex;
-                    align-items: center;
-                    transition: top 0.5s ease;
-                }
-                #toast img {
-                    width: 64px;
-                    height: 64px;
-                    margin-right: 10px;
-                    ${round}
-                }
-                #toast .points {
-                    margin-left: 10px;
-                }
-            `;
+                  #toast {
+                      position: fixed;
+                      z-index: 9999;
+                      top: -100px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      background-color: ${bgColour};
+                      color: ${fontColour};
+                      padding: ${padding}px;
+                      border-radius: ${borderRadius}px;
+                      font-family: Arial, sans-serif;
+                      font-size: ${size}px;
+                      display: flex;
+                      align-items: center;
+                      transition: top 0.5s ease;
+                  }
+                  #toast img {
+                      width: 64px;
+                      height: 64px;
+                      margin-right: 10px;
+                      ${round}
+                  }
+                  #toast .points {
+                      margin-left: 10px;
+                  }
+              `;
       document.head.appendChild(toastStyle);
 
       var toast = document.createElement("div");
@@ -423,10 +424,11 @@
 
       document.body.appendChild(toast);
 
-      console.log(this.soundwhenalertEnabled)
-
-      if (this.soundwhenalertEnabled = true) {
-        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+      if (toastConfig["soundWhenAlertEnabled"] == "true") {
+        var audioLink =
+          stylesToast["toast"].soundLink ??
+          "https://ruby-devs.vercel.app/cdn/appear.mp3";
+        var audio = new Audio(audioLink);
         audio.play();
       }
 
@@ -448,48 +450,48 @@
       var type = args.TYPE;
       var duration = args.DURATION; // New argument for duration
 
-      var size = someStylesOfToast["alert"].fontSize ?? 16;
-      var bgColour = someStylesOfToast["alert"].backgroundColour ?? null;
-      var borderRadius = someStylesOfToast["alert"].borderRadius ?? 5;
-      var padding = someStylesOfToast["alert"].padding ?? 20;
+      var size = stylesToast["alert"].fontSize ?? 16;
+      var bgColour = stylesToast["alert"].backgroundColour ?? "#2196F3";
+      var borderRadius = stylesToast["alert"].borderRadius ?? 5;
+      var padding = stylesToast["alert"].padding ?? 20;
+      var fontColour = stylesToast["alert"].fontColour ?? "#FFFFFF";
 
       var alertStyle = document.createElement("style");
       alertStyle.id = "alertStyle";
       alertStyle.textContent = `
-                .alert {
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    padding: ${padding}px;
-                    border-radius: ${borderRadius}px;
-                    background-color: ${
-                      validCssColour(bgColour) ? bgColour : "#2196F3"
-                    };
-                    font-family: Arial, sans-serif;
-                    font-size: ${size}px;
-                    z-index: 9999;
-                    opacity: 0; /* Initially transparent */
-                    animation: fadeIn 0.5s ease-in forwards; /* Fade in animation */
-                }
-
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                    }
-                    to {
-                        opacity: 1;
-                    }
-                }
-                @keyframes fadeOut {
-                    from {
-                        opacity: 1;
-                    }
-                    to {
-                        opacity: 0;
-                    }
-                }
-            `;
+                  .alert {
+                      position: fixed;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      padding: ${padding}px;
+                      border-radius: ${borderRadius}px;
+                      background-color: ${bgColour};
+                      color: ${fontColour};
+                      font-family: Arial, sans-serif;
+                      font-size: ${size}px;
+                      z-index: 9999;
+                      opacity: 0; /* Initially transparent */
+                      animation: fadeIn 0.5s ease-in forwards; /* Fade in animation */
+                  }
+  
+                  @keyframes fadeIn {
+                      from {
+                          opacity: 0;
+                      }
+                      to {
+                          opacity: 1;
+                      }
+                  }
+                  @keyframes fadeOut {
+                      from {
+                          opacity: 1;
+                      }
+                      to {
+                          opacity: 0;
+                      }
+                  }
+              `;
       document.head.appendChild(alertStyle);
 
       var alert = document.createElement("div");
@@ -497,8 +499,12 @@
       alert.textContent = text;
       document.body.appendChild(alert);
 
-      if (this.soundwhenalertEnabled = true) {
-        var audio = new Audio('https://ruby-devs.vercel.app/cdn/appear.mp3');
+      if (toastConfig["soundWhenAlertEnabled"] == "true") {
+        var audioLink =
+          stylesToast["alert"].soundLink ??
+          "https://ruby-devs.vercel.app/cdn/appear.mp3";
+        var audio = new Audio(audioLink);
+
         audio.play();
       }
 
@@ -525,16 +531,23 @@
       }
 
       if (styleNumbers.includes(style)) {
-        someStylesOfToast[alltypes][style] = cast.toNumber(value);
+        stylesToast[alltypes][style] = cast.toNumber(value);
+      } else if (style == "backgroundColour" || style == "fontColour") {
+        stylesToast[alltypes][style] = validColour(value) ? value : null;
       } else {
-        someStylesOfToast[alltypes][style] = value;
+        stylesToast[alltypes][style] = value;
       }
     }
 
     resetStyleOf(args) {
-      var alltypes = args.ALLTYPES;
+      const alltypes = args.ALLTYPES;
+      stylesToast[alltypes] = defaultStyles()[alltypes];
+    }
 
-      someStylesOfToast[alltypes] = defaultStyles()[alltypes];
+    getStyleOf(args) {
+      const alltypes = args.ALLTYPES;
+      const style = stylesToast[alltypes];
+      return style == null ? "undefined" : style;
     }
 
     getHexColour(args) {
@@ -542,8 +555,8 @@
     }
 
     setConfig(args) {
-      const configname = args.CONFIG
-      this[configname] = args.VALUE
+      const configname = args.CONFIG;
+      toastConfig[configname] = args.VALUE;
     }
   }
 
