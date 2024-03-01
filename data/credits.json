@@ -6,31 +6,38 @@
   "devs": [
     {
       "name": "MubiLop",
-      "url": "https://rubyteam.tech/cdn/devimgs/mubilop.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/mubilop.png",
+      "profileUrl": "https://github.com/cicerorph"
     },
     {
       "name": "DodecaTheDev",
-      "url": "https://rubyteam.tech/cdn/devimgs/azuritii.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/azuritii.png",
+      "profileUrl": "https://github.com/cicerorph"
     },
     {
       "name": "Gen1x",
-      "url": "https://rubyteam.tech/cdn/devimgs/genix.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/genix.png",
+      "profileUrl": "https://github.com/Gen1x-ALT"
     },
     {
       "name": "ddededodediamante",
-      "url": "https://rubyteam.tech/cdn/devimgs/ddededodediamante.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/ddededodediamante.png",
+      "profileUrl": "https://github.com/ddededodediamante"
     },
     {
       "name": "sourdoggy",
-      "url": "https://rubyteam.tech/cdn/devimgs/sourdoggy.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/sourdoggy.png",
+      "profileUrl": "https://steamcommunity.com/id/sourdoggy"
     },
     {
       "name": "creative13",
-      "url": "https://rubyteam.tech/cdn/devimgs/creative13.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/creative13.png",
+      "profileUrl": "https://steamcommunity.com/id/crea13"
     },
     {
       "name": "sharkpool",
-      "url": "https://rubyteam.tech/cdn/devimgs/sharkpool.png"
+      "url": "https://rubyteam.tech/cdn/devimgs/sharkpool.png",
+      "profileUrl": "https://shark-pool.newgrounds.com"
     }
   ]
 }
