@@ -1,7 +1,7 @@
 {
-  "extensiondevs": ["MubiLop", "Gen1x"],
+  "extensiondevs": ["MubiLop", "Gen1x", "ddededodediamante", "creative13", "sharkpool"],
   "websitedevs": ["Gen1x", "DodecaTheDev", "MubiLop"],
-  "thumbnailmaker": ["DodecaTheDev", "MubiLop"],
+  "thumbnailmaker": ["DodecaTheDev", "MubiLop", "ddededodediamante", "sourdoggy"],
   "backenddevs": ["MubiLop"],
   "devs": [
     {
@@ -15,6 +15,22 @@
     {
       "name": "Gen1x",
       "url": "https://rubyteam.tech/cdn/devimgs/genix.png"
-    }
+    },
+    {
+      "name": "ddededodediamante",
+      "url": "https://rubyteam.tech/cdn/devimgs/ddededodediamante.png"
+    },
+    {
+      "name": "sourdoggy",
+      "url": "https://rubyteam.tech/cdn/devimgs/sourdoggy.png"
+    },
+    {
+      "name": "creative13",
+      "url": "https://rubyteam.tech/cdn/devimgs/creative13.png"
+    },
+    {
+      "name": "sharkpool",
+      "url": "https://rubyteam.tech/cdn/devimgs/sharkpool.png"
+    },
   ]
 }
