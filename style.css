@@ -226,6 +226,6 @@ p {
 }
 
 .roundeiest-image {
-  border-radius: 150px;
+  border-radius: 100%;
   overflow: hidden;
 }
