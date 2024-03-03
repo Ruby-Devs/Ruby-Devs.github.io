@@ -237,7 +237,7 @@
                     },
                     {
                         opcode: 'generateImageAndImport',
-                        blockType: Scratch.BlockType.REPORTER,
+                        blockType: Scratch.BlockType.COMMAND,
                         text: 'Generate [PROMPT] from [MODEL] and import as costume with name [NAME]',
                         arguments: {
                             PROMPT: {
