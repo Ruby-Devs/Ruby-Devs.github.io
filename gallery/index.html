@@ -65,6 +65,9 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Uhhh ignore this
+      if (location.search == '?ddededodediamante=true') { document.body.style.fontFamily = "Comic Sans MS, cursive"; };
+      
       // Fetch JSON data from the website
       fetch('https://ruby-devs.vercel.app/data/extensions.json')
         .then(response => response.json())
