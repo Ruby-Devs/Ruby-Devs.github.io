@@ -74,7 +74,7 @@
       const container = document.getElementById('extensionContainer');
 
       data.forEach((extensionData, index) => {
-        if (extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true' ) { continue; }
+        if (extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true' ) { window.alert('') continue; }
         const extension = document.createElement('div');
         extension.className = 'extension';
 
