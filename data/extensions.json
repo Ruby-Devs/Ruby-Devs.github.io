@@ -72,5 +72,11 @@
     "description": "Show weather and location data for any place in our world. Data that could be used for doxxing is deleted from results.",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/turboweather.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/turboweather.webp"
+  },
+  {
+    "name": "Poop Extension",
+    "description": "The most useful, amazing, and well done extension, made by the most cool person ever!",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/poop.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/poop.png"
   }
 ]
