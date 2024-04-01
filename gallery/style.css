@@ -81,6 +81,20 @@ a {
   box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8), inset 0px 0px 25px #ffd700;
 }
 
+.extension.legendary-extension {
+  box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8), inset 0px 0px 25px #6ba6ff;
+  animation: glow 1.5s ease-in-out infinite alternate; /* Adjust animation duration and timing as needed */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8), inset 0px 0px 25px #6ba6ff;
+  }
+  to {
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 1), inset 0px 0px 30px #6ba6ff; /* Adjust glow effect */
+  }
+}
+
 .extension:hover {
   transform: scale(1.05);
 }
