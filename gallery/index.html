@@ -102,15 +102,14 @@
     extension.style.animation = `fadeIn 0.5s forwards ${index * 0.2}s`;
 
     const img = document.createElement('img');
-    img.src = "/gallery/joe.png";
-    img.alt = "Joe ".repeat(extensionData.name.length);
-    img.title = "Joe ".repeat(extensionData.name.length);
+    img.src = extensionData.thumb;
+    img.alt = extensionData.name;
 
     const content = document.createElement('div');
     content.className = 'content';
 
     const strong = document.createElement('strong');
-    strong.textContent = "Joe".repeat(extensionData.name.length);
+    strong.textContent = "Joe";
 
     const p = document.createElement('p');
     p.textContent = "Joe ".repeat(extensionData.description.length);
@@ -150,14 +149,15 @@
 }
 
     function downloadJS(url, filename) {
-      fetch("/gallery/joe.png")
-        .then(response => response.blob())
-        .then(pngBlob => {
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(pngBlob);
-      link.download = `Joe.png`;
-      link.click();
-    })
+      fetch(url)
+        .then(response => response.text())
+        .then(jsCode => {
+          const blob = new Blob([jsCode], { type: 'application/javascript' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = `${filename}.js`;
+          link.click();
+        })
         .catch(error => console.error('Error fetching JS code:', error));
     }
 
