@@ -14,7 +14,7 @@ class mewingUtilsExtension {
                 },
                 {
                     opcode: 'jawlinePerfection',
-                    blockType: Scratch.BlockType.COMMAND,
+                    blockType: Scratch.BlockType.REPORTER,
                     text: 'jawline perfection'
                 }
             ]
@@ -28,6 +28,7 @@ class mewingUtilsExtension {
     }
 
     jawlinePerfection() {
+        if (this.mewingJawline <= 30) window.alert('your jawline is very bad 😂😂');
         return this.mewingJawline + '%';
     }
 }
