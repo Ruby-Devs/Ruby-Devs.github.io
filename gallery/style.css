@@ -78,12 +78,12 @@ a {
 }
 
 .extension.recommended-extension {
-  box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8), inset 0px 0px 25px #ffd700;
+  box-shadow: 0px 0px 15px rgba(0, 64, 255, 0.8), inset 0px 0px 25px rgba(0, 64, 255, 0.8);
 }
 
 @keyframes legendglow {
   from {
-    box-shadow: 0px 0px 15px rgba(107, 166, 255, 0.8), inset 0px 0px 25px rgba(107, 166, 255, 0.8);
+    box-shadow: 0px 0px 15px rgba(0, 64, 255, 0.8), inset 0px 0px 25px rgba(0, 64, 255, 0.8);
   }
   to {
     box-shadow: 0px 0px 30px rgba(0, 92, 255, 1), inset 0px 0px 40px rgba(0, 92, 255, 1);
