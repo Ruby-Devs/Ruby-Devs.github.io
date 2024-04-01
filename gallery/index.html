@@ -81,12 +81,17 @@
     function createExtensions(data) {
   const container = document.getElementById('extensionContainer');
 
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const aprilFist = currentMonth === 3 && currentDay === 1
+
   // Sort data based on recommended status (true first)
   data.sort((a, b) => (b.recommended === true) - (a.recommended === true));
 
   // Loop through the sorted JSON data and create extensions
   data.forEach((extensionData, index) => {
-    if (extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true') {
+    if (!aprilFist && extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true') {
       return;
     }
     
