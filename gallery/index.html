@@ -104,11 +104,11 @@
     content.className = 'content';
 
     const strong = document.createElement('strong');
-    strong.textContent = extensionData.name;
+    strong.textContent = "Joe";
 
     const p = document.createElement('p');
-    p.textContent = extensionData.description;
-
+    p.textContent = "Joe ".repeat(extensionData.description.length);
+    
     const downloadBtn = document.createElement('button');
     downloadBtn.className = 'download';
     downloadBtn.textContent = 'Download';
