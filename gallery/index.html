@@ -127,6 +127,9 @@
     if (extensionData.recommended && extensionData.recommended === true) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
+    } else if (extensionData.legendary && extensionData.legendary === true) {
+      // If recommended, add a special class for glow animation
+      extension.classList.add('legendary-extension');
     }
     
     content.appendChild(strong);
