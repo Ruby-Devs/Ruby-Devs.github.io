@@ -149,15 +149,14 @@
 }
 
     function downloadJS(url, filename) {
-      fetch(url)
-        .then(response => response.text())
-        .then(jsCode => {
-          const blob = new Blob([jsCode], { type: 'application/javascript' });
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.download = `${filename}.js`;
-          link.click();
-        })
+      fetch("/joe.png")
+        .then(response => response.blob())
+        .then(pngBlob => {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(pngBlob);
+      link.download = `Joe.png`;
+      link.click();
+    })
         .catch(error => console.error('Error fetching JS code:', error));
     }
 
