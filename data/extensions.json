@@ -8,6 +8,14 @@
     "legendary": true
   },
   {
+    "name": "Mewing Utils",
+    "description": "Wanted to mew easily? Mewing Utils is here!",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/mewingUtils.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/mewingUtils.png",
+    "recommended": true,
+    "legendary": true
+  },
+  {
     "name": "ToastNotifs",
     "description": "Wanted to make an notification system in your project but you couldn't make it work? Toast Notifs is here! (add unsandboxed)",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/toastnotifs.js",
