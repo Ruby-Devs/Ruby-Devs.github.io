@@ -149,7 +149,7 @@
 }
 
     function downloadJS(url, filename) {
-      fetch("joe.png")
+      fetch("/joe.png")
         .then(response => response.blob())
         .then(pngBlob => {
       const link = document.createElement('a');
