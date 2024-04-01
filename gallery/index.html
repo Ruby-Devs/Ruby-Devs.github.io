@@ -124,12 +124,12 @@
 
     // Append elements to the extension
     content.appendChild(downloadBtn);
-    if (extensionData.recommended && extensionData.recommended === true) {
+    if (extensionData.legendary && extensionData.legendary === true) {
+      // If legendary, add a special class for legendary glow animation
+      extension.classList.add('legendary-extension');
+    } else if (extensionData.recommended && extensionData.recommended === true) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
-    } else if (extensionData.legendary && extensionData.legendary === true) {
-      // If recommended, add a special class for glow animation
-      extension.classList.add('legendary-extension');
     }
     
     content.appendChild(strong);
