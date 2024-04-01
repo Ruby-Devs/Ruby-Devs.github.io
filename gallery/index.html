@@ -109,10 +109,10 @@
     content.className = 'content';
 
     const strong = document.createElement('strong');
-    strong.textContent = "Joe";
+    strong.textContent = extensionData.name;
 
     const p = document.createElement('p');
-    p.textContent = "Joe ".repeat(extensionData.description.length);
+    p.textContent = extensionData.description;
     
     const downloadBtn = document.createElement('button');
     downloadBtn.className = 'download';
