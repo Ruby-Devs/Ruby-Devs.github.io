@@ -91,7 +91,9 @@
 
   // Loop through the sorted JSON data and create extensions
   data.forEach((extensionData, index) => {
-    if (!aprilFist && extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true') {
+    var coolExt = (extensionData.name == 'Poop Extension' || extensionData.name == 'Mewing Utils');
+    
+    if (!aprilFist && coolExt && location.search != '?ddededodediamante=true') {
       return;
     }
     
