@@ -27,7 +27,7 @@
         const windowSize = window.innerHeight;
         const joeContainer = document.getElementById("joe-container");
         joeContainer.innerHTML = ""; // Clear existing joe spans
-        const numJoeSpans = Math.ceil(windowSize / 1); // Assuming each "Joe " occupies 20px height
+        const numJoeSpans = Math.ceil(windowSize); // Assuming each "Joe " occupies 20px height
         for (let i = 0; i < numJoeSpans; i++) {
           joeContainer.appendChild(addJoeSpan());
         }
