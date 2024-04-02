@@ -1,6 +1,58 @@
-<h1>There is no more Ruby Devs.</h1>
-<p>There is only Joe.</p>
-<img src="gallery/joe.png" title="our only lord and saviour, joe">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Infinite Joe Scroll</title>
+  <style>
+    body {
+      height: 2000px; /* Set a height larger than the viewport to enable scrolling */
+    }
+    .joe {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>There is no more Ruby Devs.</h1>
+  <p>There is only Joe.</p>
+  <div class="joe"></div>
+  <script>
+    // Function to create and append the "Joe" element
+    function appendJoe() {
+      const joeElement = document.createElement("div");
+      joeElement.textContent = "Joe";
+      joeElement.classList.add("joe");
+      document.body.appendChild(joeElement);
+    }
+
+    // Append "Joe" initially
+    appendJoe();
+
+    // Function to handle scrolling and append "Joe" as needed
+    function handleScroll() {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      );
+
+      // If scrolled to the bottom, append "Joe"
+      if (scrollTop + windowHeight >= documentHeight) {
+        appendJoe();
+      }
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+  </script>
+</body>
+</html>
 <!--
 <!DOCTYPE html>
 <html lang="en">
