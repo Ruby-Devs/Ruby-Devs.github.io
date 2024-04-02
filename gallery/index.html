@@ -1,62 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        font-weight: bold;
-        color: red;
-        text-align: center;
-        height: 2000px;
-      }
-      #joe-span {
-        display: block;
-        margin-top: 20px;
-      }
-    </style>
-    <script>
-      function addJoeSpan() {
-        const joeSpan = document.createElement("span");
-        joeSpan.innerText = "Joe";
-        return joeSpan;
-      }
-
-      function updateJoeSpans() {
-        const windowHeight = window.innerHeight;
-        const contentHeight = document.documentElement.scrollHeight;
-        const scrollPosition = window.scrollY;
-        const joeContainer = document.getElementById("joe-container");
-        const numJoeSpans = Math.ceil(windowHeight);
-          for (let i = 0; i < numJoeSpans; i++) {
-            joeContainer.appendChild(addJoeSpan());
-          }
-      }
-
-      window.addEventListener("load", updateJoeSpans);
-      window.addEventListener("resize", updateJoeSpans);
-      window.addEventListener("scroll", function () {
-        const windowHeight = window.innerHeight;
-        const contentHeight = document.documentElement.scrollHeight;
-        const scrollPosition = window.scrollY;
-        const joeContainer = document.getElementById("joe-container");
-        const numJoeSpans = Math.ceil(windowHeight);
-          for (let i = 0; i < numJoeSpans; i++) {
-            joeContainer.appendChild(addJoeSpan());
-          }
-      });
-    </script>
-  </head>
-  <body>
-    <h1>There is no more Ruby Devs.</h1>
-    <p>There is only Joe.</p>
-    <img src="gallery/joe.png" title="our only lord and saviour, joe, who rised for us">
-    <div id="joe-container"></div>
-  </body>
-</html>
-<!--
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -113,11 +55,13 @@
     <br>
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">The services provided by Ruby Devs (images, code, extensions, etc)</span> are licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
   </center>
+  <!-- Add this search container above the extension container -->
   <div class="search-container">
     <input type="text" id="extensionSearch" placeholder="Search...">
     <button onclick="searchExtensions()">Search</button>
   </div>
   <div class="container" id="extensionContainer">
+    <!-- Extensions will be dynamically added here -->
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -137,19 +81,12 @@
     function createExtensions(data) {
   const container = document.getElementById('extensionContainer');
 
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentDay = currentDate.getDate();
-  const aprilFist = currentMonth === 3 && currentDay === 1
-
   // Sort data based on recommended status (true first)
   data.sort((a, b) => (b.recommended === true) - (a.recommended === true));
 
   // Loop through the sorted JSON data and create extensions
   data.forEach((extensionData, index) => {
-    var coolExt = (extensionData.name == 'Poop Extension' || extensionData.name == 'Mewing Utils' || extensionData.name == 'Joe');
-    
-    if (!aprilFist && coolExt && location.search != '?ddededodediamante=true') {
+    if (extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true') {
       return;
     }
     
@@ -171,7 +108,7 @@
 
     const p = document.createElement('p');
     p.textContent = extensionData.description;
-    
+
     const downloadBtn = document.createElement('button');
     downloadBtn.className = 'download';
     downloadBtn.textContent = 'Download';
@@ -182,10 +119,7 @@
 
     // Append elements to the extension
     content.appendChild(downloadBtn);
-    if (extensionData.legendary && extensionData.legendary === true) {
-      // If legendary, add a special class for legendary glow animation
-      extension.classList.add('legendary-extension');
-    } else if (extensionData.recommended && extensionData.recommended === true) {
+    if (extensionData.recommended && extensionData.recommended === true) {
       // If recommended, add a special class for glow animation
       extension.classList.add('recommended-extension');
     }
@@ -246,4 +180,3 @@
 </body>
 
 </html>
--->
