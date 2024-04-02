@@ -86,10 +86,6 @@
 
   // Loop through the sorted JSON data and create extensions
   data.forEach((extensionData, index) => {
-    if (extensionData.name == 'Poop Extension' && location.search != '?ddededodediamante=true') {
-      return;
-    }
-    
     const extension = document.createElement('div');
     extension.className = 'extension';
 
