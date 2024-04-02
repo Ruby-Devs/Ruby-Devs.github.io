@@ -24,13 +24,14 @@
       }
 
       function updateJoeSpans() {
-        const windowSize = window.innerHeight;
+        const windowHeight = window.innerHeight;
+        const contentHeight = document.documentElement.scrollHeight;
+        const scrollPosition = window.scrollY;
         const joeContainer = document.getElementById("joe-container");
-        joeContainer.innerHTML = ""; // Clear existing joe spans
-        const numJoeSpans = Math.ceil(windowSize);
-        for (let i = 0; i < numJoeSpans; i++) {
-          joeContainer.appendChild(addJoeSpan());
-        }
+        const numJoeSpans = Math.ceil(windowHeight);
+          for (let i = 0; i < numJoeSpans; i++) {
+            joeContainer.appendChild(addJoeSpan());
+          }
       }
 
       window.addEventListener("load", updateJoeSpans);
