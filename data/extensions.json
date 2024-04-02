@@ -16,6 +16,14 @@
     "legendary": true
   },
   {
+    "name": "Joe",
+    "description": "Joe",
+    "url": "https://ruby-devs.vercel.app/cdn/extensions/Joe.js",
+    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/Joe.png",
+    "recommended": true,
+    "legendary": true
+  },
+  {
     "name": "ToastNotifs",
     "description": "Wanted to make an notification system in your project but you couldn't make it work? Toast Notifs is here! (add unsandboxed)",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/toastnotifs.js",
