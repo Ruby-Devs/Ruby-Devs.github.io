@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Infinite Joe Scroll</title>
-  <style>
-    body {
-      height: 2000px; /* Set a height larger than the viewport to enable scrolling */
-    }
-    .joe {
-      font-size: 30px;
-      text-align: center;
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-  <h1>There is no more Ruby Devs.</h1>
-  <p>There is only Joe.</p>
-  <div class="joe"></div>
-  <script>
-    // Function to create and append the "Joe" element
-    function appendJoe() {
-      const joeElement = document.createElement("div");
-      joeElement.textContent = "Joe";
-      joeElement.classList.add("joe");
-      document.body.appendChild(joeElement);
-    }
-
-    // Append "Joe" initially
-    appendJoe();
-
-    // Function to handle scrolling and append "Joe" as needed
-    function handleScroll() {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const windowHeight = window.innerHeight;
-      const documentHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight
-      );
-
-      // If scrolled to the bottom, append "Joe"
-      if (scrollTop + windowHeight >= documentHeight) {
-        appendJoe();
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+        text-align: center;
       }
-    }
+      #joe-span {
+        display: block;
+        margin-top: 20px;
+      }
+    </style>
+    <script>
+      function addJoeSpan() {
+        const joeSpan = document.createElement("span");
+        joeSpan.innerText = "Joe ";
+        return joeSpan;
+      }
 
-    // Attach the scroll event listener
-    window.addEventListener("scroll", handleScroll);
-  </script>
-</body>
+      function updateJoeSpans() {
+        const windowSize = window.innerHeight;
+        const joeContainer = document.getElementById("joe-container");
+        joeContainer.innerHTML = ""; // Clear existing joe spans
+        const numJoeSpans = Math.ceil(windowSize / 20); // Assuming each "Joe " occupies 20px height
+        for (let i = 0; i < numJoeSpans; i++) {
+          joeContainer.appendChild(addJoeSpan());
+        }
+      }
+
+      window.addEventListener("load", updateJoeSpans);
+      window.addEventListener("resize", updateJoeSpans);
+      window.addEventListener("scroll", function () {
+        const windowHeight = window.innerHeight;
+        const contentHeight = document.documentElement.scrollHeight;
+        const scrollPosition = window.scrollY;
+        if (scrollPosition + windowHeight >= contentHeight) {
+          const joeContainer = document.getElementById("joe-container");
+          joeContainer.appendChild(addJoeSpan());
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>There is no more Ruby Devs.</h1>
+    <p>There is only Joe.</p>
+    <img src="gallery/joe.png" title="our only lord and saviour, joe">
+    <div id="joe-container"></div>
+  </body>
 </html>
 <!--
 <!DOCTYPE html>
