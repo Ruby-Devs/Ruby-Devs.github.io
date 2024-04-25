@@ -24,40 +24,6 @@
     "legendary": true
   },
   {
-    "name": "ToastNotifs",
-    "description": "Wanted to make an notification system in your project but you couldn't make it work? Toast Notifs is here! (add unsandboxed)",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/toastnotifs.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/toastnotifs.png",
-    "recommended": true
-  },
-  {
-    "name": "1mbShortener",
-    "description": "Using 1mb Api you can now share links without it being long!",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/1mb.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/1mb.svg",
-    "recommended": false
-  },
-  {
-    "name": "PenguinGPT",
-    "description": "Using WorkingTurboGPT's source code, we made PenguinGPT! New features will come like DALL-E, etc, all for free!",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/penguingpt.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguingpt.png",
-    "recommended": true
-  },
-  {
-    "name": "GoFile",
-    "description": "Upload any files with no limits using the gofile.io service. Updates may come with better features.",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/gofile.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/gofile.png",
-    "recommended": false
-  },
-  {
-    "name": "TurboGemini",
-    "description": "Use Google's brand-new Gemini AI technology (similar to ChatGPT) inside your projects.",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/geminiai.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/turbogemini.webp"
-  },
-  {
     "name": "PenguinPedia",
     "description": "Get a lot of data from Wikipedia, like definitions and images!",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinpedia.js",
@@ -69,12 +35,6 @@
     "description": "Recognizes words or sentences said into the microphone. Experimental, can be innacurate sometimes.",
     "url": "https://ruby-devs.vercel.app/cdn/extensions/speechtotext.js",
     "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/speechtotext.png"
-  },
-  {
-    "name": "PenguinHook",
-    "description": "Send Webhook requests, that can be Discord or any type of webhook.",
-    "url": "https://ruby-devs.vercel.app/cdn/extensions/penguinhook.js",
-    "thumb": "https://ruby-devs.vercel.app/cdn/thumbnails/penguinhook.png"
   },
   {
     "name": "Ruby Maps",
