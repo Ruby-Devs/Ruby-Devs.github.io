@@ -47,7 +47,7 @@ section {
   max-width: 800px;
   margin: 2em auto;
   padding: 1em;
-  background-color: #ffffff;
+  background-color: #cab2fb;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #333;
   border-radius: 12px;
@@ -67,7 +67,7 @@ input[type="submit"],
 input[type="button"]{
   background: transparent;
   font-family: 'Roboto', sans-serif;
-  color: #000000;
+  color: #cab2fb;
   font-size: 17px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
