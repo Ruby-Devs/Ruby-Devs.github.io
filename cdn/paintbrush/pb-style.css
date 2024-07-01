@@ -10,7 +10,7 @@
 	background-color: hsl(0deg 34.42% 10.65% / 90%);
 }
 
-.checkbox_checkbox_2QbUl {-webkit-appearance: none; -moz-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 4px; transition: .2s; background-color: var(--ui-white); transition-property: background-color; background-size: 100%; border: 1px solid var(--ui-black-transparent); outline: none;}
+.checkbox_checkbox_2QbUl {-webkit-appearance: none; -moz-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 4px; transition: .2s; background-color: var(#ffffff); transition-property: background-color; background-size: 100%; border: 1px solid var(--ui-black-transparent); outline: none;}
 
 .delete-icon {
 	display: inline-block;
@@ -100,68 +100,4 @@ body[theme="light"] .delete-icon {
 
 .settings-modal_active_1McfX:hover {
     background-color: #203652;
-}
-
-.control {
-    font-family: arial;
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 5px;
-    padding-top: 3px;
-    cursor: pointer;
-    font-size: 16px;
-}
-    .control input {
-        position: absolute;
-        z-index: -1;
-        opacity: 0;
-    }
-.control_indicator {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background: #e6e6e6;
-    border: 0px solid #000000;
-    border-radius: 4px;
-}
-.control:hover input ~ .control_indicator,
-.control input:focus ~ .control_indicator {
-    background: #cccccc;
-}
-
-.control input:checked ~ .control_indicator {
-    background: #855cd6;
-}
-.control:hover input:not([disabled]):checked ~ .control_indicator,
-.control input:checked:focus ~ .control_indicator {
-    background: #a37fe8;
-}
-.control input:disabled ~ .control_indicator {
-    background: #a37fe8;
-    opacity: 0.6;
-    pointer-events: none;
-}
-.control_indicator:after {
-    box-sizing: unset;
-    content: '';
-    position: absolute;
-    display: none;
-}
-.control input:checked ~ .control_indicator:after {
-    display: block;
-}
-.control-checkbox .control_indicator:after {
-    left: 8px;
-    top: 4px;
-    width: 3px;
-    height: 8px;
-    border: solid #ffffff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.control-checkbox input:disabled ~ .control_indicator:after {
-    border-color: #ffffff;
 }
