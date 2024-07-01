@@ -2,16 +2,6 @@
 /**********************************/
 /**** www.CSScheckbox.com *********/
 
-/*general styles for all CSS Checkboxes*/
-label {
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
 input[type=checkbox].css-checkbox {
 	  position: absolute; 
     overflow: hidden; 
@@ -127,4 +117,3 @@ input[type=checkbox].css-checkbox.lrg:checked + label.css-label.lrg{
 
     background-position: 0 -20px;
 }
-
